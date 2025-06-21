@@ -1,0 +1,18 @@
+.landingBody {
+	background: url("/Res/Landing.webp") no-repeat center center fixed;
+	background-color: var(--body-bg);
+	background-size: cover;
+}
+.landingBodyText {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	padding: 5rem;
+	background-color: #10173a29;
+
+	backdrop-filter: blur(1px);
+	text-shadow: 2px 2px 3px #000a41db;
+}
