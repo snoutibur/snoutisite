@@ -6,8 +6,9 @@ export default defineConfig({
     vite: {
         resolve: {
             alias: {
+                '@components': '/src/components',
+                '@img': '/public/img',
                 '@styles': '/src/styles',
-                '@components': '/src/components'
             }
         }
     }

@@ -6,8 +6,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@components/*": ["/src/components"],
+      "@img/*": ["/public/img"],
       "@styles/*": ["/src/styles"],
-      "@components/*": ["/src/components"]
     }
   }
 }
