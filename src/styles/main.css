@@ -105,6 +105,15 @@ body::-webkit-scrollbar-thumb {
     margin: 0 1.5rem;
 }
 
+/* Misc Common */
+.socials {
+    width: 2rem;
+    height: 2rem;
+
+    object-fit: contain;
+    display: inline;
+}
+
 /* RESPONSIVE STUFFS */
 /* Small screens */
 @media only screen and (max-width: 600px) {
@@ -169,7 +178,6 @@ body::-webkit-scrollbar-thumb {
     main {
         margin-left: 5rem;
         margin-top: .75rem;
-
         padding-left: 2rem;
         padding-right: 2rem;
     }
