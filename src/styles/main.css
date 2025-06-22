@@ -59,6 +59,13 @@ body::-webkit-scrollbar-thumb {
     background: #6649b8;
 }
 
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--text-primary), transparent);
+    margin: 3rem 0;
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
