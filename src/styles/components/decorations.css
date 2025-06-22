@@ -1,0 +1,19 @@
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--text-primary), transparent);
+    margin: 3rem 0;
+}
+
+/* Scrollbar */
+body::-webkit-scrollbar {
+    width: 0.33rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #6649b8;
+}

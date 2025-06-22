@@ -1,0 +1,23 @@
+.centerContentsH {
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+/* Socials */
+.socials-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+    gap: .5em;
+}
+
+.socials {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+}

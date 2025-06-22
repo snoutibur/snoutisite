@@ -1,22 +1,9 @@
-:root {
-    font-size: 16px;
-    font-family: 'Courier New', Courier, monospace;
-    --text-primary: #9f9f9f;
-    --text-secondary: #ffffff;
-    --body-bg: #0e0616;
-    --bg-primary: #3b0e4d;
-    --bg-secondary: #000000;
-    --transition-speed: 200ms;
-}
+@import "./variables.css";
+@import "./components/navbar.css";
+@import "./components/utilities.css";
+@import "./components/decorations.css";
 
-/* FUNCTIONAL CLASS ITEMS */
-.centerContentsH {
-    display: grid;
-    place-items: center;
-    text-align: center;
-}
-
-/* WEBPAGE */
+/* Webpage Essentials */
 header {
     position: relative;
     z-index: 5;
@@ -48,108 +35,8 @@ main {
     }
 }
 
-/* Scrollbar */
-body::-webkit-scrollbar {
-    width: 0.33rem;
-}
-body::-webkit-scrollbar-track {
-    background: #1e1e24;
-}
-body::-webkit-scrollbar-thumb {
-    background: #6649b8;
-}
-
-hr {
-    border: none;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--text-primary), transparent);
-    margin: 3rem 0;
-}
-
-/* Navigation */
-.navbar {
-    position: fixed;
-    z-index: 6;
-
-    background-color: var(--bg-primary);
-    transition: width 83ms ease;
-    overflow: scroll;
-}
-.navbar-nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
-.navbar-item {
-    width: 100%;
-}
-.nav-link {
-    display: flex;
-    align-items: center;
-    height: 5rem;
-    color: var(--text-primary);
-    text-decoration: none;
-    filter: grayscale(100%) opacity(0.7);
-    transition: var(--transition-speed);
-}
-
-.nav-link:hover {
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
-}
-
-.link-text {
-    display: none;
-    margin-left: 1rem;
-}
-.nav-link svg {
-    width: 2rem;
-    min-width: 2rem;
-    margin: 0 1.5rem;
-}
-
-/* Misc Common */
-.socials-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-
-    padding: 0;
-    margin: 0;
-    gap: .5em;
-}
-.socials {
-    width: 2rem;
-    height: 2rem;
-    object-fit: contain;
-}
-
-/* RESPONSIVE STUFFS */
-/* Small screens */
+/* Responsive */
 @media only screen and (max-width: 600px) {
-    .navbar {
-        bottom: 0;
-        width: 100vw;
-        height: 3rem;
-    }
-
-    .logo {
-        display: none;
-    }
-
-    .navbar-nav {
-        flex-direction: row;
-    }
-
-    .nav-link {
-        justify-content: center;
-    }
-
     main {
         margin-bottom: 3rem;
 
@@ -163,33 +50,7 @@ hr {
     }
 }
 
-/* Large screens */
 @media only screen and (min-width: 600px) {
-    .navbar {
-        top: 0;
-        width: 5rem;
-        height: 100vh;
-    }
-
-    .navbar:hover {
-        width: 16rem;
-        box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.5);
-    }
-
-    .navbar:hover .link-text {
-        display: inline;
-    }
-
-    .navbar:hover .logo svg
-    {
-        margin-left: 11rem;
-    }
-
-    .navbar:hover .logo-text
-    {
-        left: 0;
-    }
-
     main {
         margin-left: 5rem;
         margin-top: .75rem;

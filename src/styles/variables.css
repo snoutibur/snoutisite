@@ -1,0 +1,10 @@
+:root {
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    --text-primary: #9f9f9f;
+    --text-secondary: #ffffff;
+    --body-bg: #0e0616;
+    --bg-primary: #3b0e4d;
+    --bg-secondary: #000000;
+    --transition-speed: 200ms;
+}
