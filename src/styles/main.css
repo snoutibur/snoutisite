@@ -175,8 +175,13 @@ body::-webkit-scrollbar-thumb {
     }
 
     header {
+        max-width: calc(100vw - 5rem);
+
         padding-left: .5rem;
         padding-right: .5rem;
+        margin-left: 5rem;
+        margin-right: 0;
+        text-align: center;
     }
 
     .media {
