@@ -1,15 +1,13 @@
-.landingBody {
-	background: var(--body-bg) url("/img/Landing.webp") no-repeat fixed center center;
-	background-size: cover;
-}
-
 #title {
-	margin: 0;
-	height: 100vh;
+	margin: -2rem -2rem 0rem -2rem;
+	height: calc(100vh + 1rem);
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	background: var(--body-bg) url("/img/Landing.webp") no-repeat center center;
+	background-size: cover;
 }
 
 #landing-title {
