@@ -112,6 +112,23 @@ hr {
     margin: 0 1.5rem;
 }
 
+/* Misc Common */
+.socials-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+    gap: .5em;
+}
+.socials {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+}
+
 /* RESPONSIVE STUFFS */
 /* Small screens */
 @media only screen and (max-width: 600px) {
@@ -176,7 +193,6 @@ hr {
     main {
         margin-left: 5rem;
         margin-top: .75rem;
-
         padding-left: 2rem;
         padding-right: 2rem;
     }
