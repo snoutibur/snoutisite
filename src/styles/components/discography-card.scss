@@ -1,0 +1,29 @@
+.discography-card {
+  background-color: var(--bg-primary);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  a:link, a:visited, a:hover, a:active {
+    color: var(--text-primary);
+    text-decoration: none;
+
+    h2 {
+      margin: .25em;
+    }
+  }
+
+  .tags {
+    display: flex;
+    margin: .5rem;
+    gap: .75em;
+    text-wrap: wrap;
+
+    .tag {
+      font-size: small;
+      border-radius: 1em;
+      padding: .5rem;
+      background-color: var(--accent);
+    }
+  }
+}

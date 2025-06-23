@@ -1,0 +1,27 @@
+---
+import "../styles/components/discography-card.scss"
+
+export interface Props {
+    title: string;
+    cover: string;
+    link: string;
+    tags?: string[];
+}
+
+const {title, cover, link, tags = []} = Astro.props;
+---
+
+<article class="discography-card">
+    <a href={link}>
+        <img src={cover} alt={`Cover art for ${title}`}/>
+        <h2>{title}</h2>
+    </a>
+
+    {tags.length > 0 && (
+            <div class="tags">
+                {tags.map(tag => (
+                        <span class="tag">{tag}</span>
+                ))}
+            </div>
+    )}
+</article>

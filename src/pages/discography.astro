@@ -1,0 +1,18 @@
+---
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DiscographyCard from "../components/DiscographyCard.astro";---
+
+<BaseLayout>
+    <Fragment slot="head">
+        <title>Discography</title>
+    </Fragment>
+
+    <header>
+        <h1>Discography</h1>
+    </header>
+
+    <main>
+        <DiscographyCard cover="img/landing.webp" link="#" title="rawr" tags={["Furry", "rawr"]} />
+    </main>
+</BaseLayout>
