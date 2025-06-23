@@ -43,9 +43,9 @@
   flex-wrap: wrap;
 
   margin: .3rem;
-  gap: .5em;
+  gap: .3em;
 
-  top: 3%;
+  top: 5%;
   right: 3%;
 
   text-wrap: wrap;
@@ -53,6 +53,7 @@
   .tag {
     font-size: .83em;
     background-color: var(--accent);
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
     padding: .3rem .3rem;
     border-radius: 1em;
     line-height: 1.25;
