@@ -18,7 +18,7 @@ const discographyImages = await getDiscography();
     </header>
 
     <main>
-        <section class="discography-grid">
+        <section class="discography-layout">
             {discographyImages.map((item) => (
                     <DiscographyCard
                             title={item.data.title}
