@@ -1,7 +1,7 @@
 ---
 title: "Shelter"
-cover: "public/discography/Shelter.png"
-order: 2
+cover: "discography/Shelter.png"
+order: 4
 date: ""
 tags:
   - electronic

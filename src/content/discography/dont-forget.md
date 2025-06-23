@@ -1,11 +1,11 @@
 ---
-title: "Sad Machine"
-cover: "discography/SadCover.png"
-order: 1
+title: "Don't Forget"
+cover: "discography/DontForget.png"
+order: 5
 date: ""
 tags:
+  - orchestral
   - electronic
-  - remix
 link: "/discography/sad-machine"
 ---
 
