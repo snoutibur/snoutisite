@@ -1,7 +1,7 @@
-@import "variables";
-@import "components/navbar";
-@import "./components/utilities.css";
-@import "./components/decorations.css";
+@use "variables";
+@use "components/navbar";
+@use "./components/utilities.css";
+@use "./components/decorations.css";
 
 /* Webpage Essentials */
 header {
