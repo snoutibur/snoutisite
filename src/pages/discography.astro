@@ -4,12 +4,8 @@ import DiscographyCard from "../components/DiscographyCard.astro";
 import "@styles/pages/discography.scss"
 
 import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
-
-const discographyItems = await getCollection('discography');
-const discography = discographyItems.sort((a: CollectionEntry<'discography'>, b: CollectionEntry<'discography'>) =>
-    a.data.order - b.data.order
-);
+import {getDiscography} from "../scripts/getDiscography";
+const discographyImages = await getDiscography();
 ---
 
 <BaseLayout>
@@ -23,10 +19,10 @@ const discography = discographyItems.sort((a: CollectionEntry<'discography'>, b:
 
     <main>
         <section class="discography-grid">
-            {discography.map((item: CollectionEntry<'discography'>) => (
+            {discographyImages.map((item) => (
                     <DiscographyCard
                             title={item.data.title}
-                            cover={item.data.cover}
+                            cover={item.coverImage}
                             tags={item.data.tags}
                             link={`/discography/${item.slug}`}
                     />
