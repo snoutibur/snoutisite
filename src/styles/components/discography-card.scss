@@ -1,7 +1,7 @@
 .discography-card {
   display: flex;
   position: relative;
-overflow: hidden;
+  overflow: hidden;
 
   flex-direction: column;
   align-items: center;
@@ -12,6 +12,8 @@ overflow: hidden;
   border-radius: .5em;
   border: solid var(--accent) .2rem;
 
+  min-width: 256px;
+
   a:link, a:visited, a:hover, a:active {
     color: var(--text-primary);
     text-decoration: none;
@@ -20,17 +22,24 @@ overflow: hidden;
       margin: .25em;
     }
   }
+
+  img {
+    aspect-ratio: 8/3;
+    object-fit: cover;
+  }
 }
 
 .tags {
   display: flex;
   position: absolute;
 
-  margin: .5rem;
+  flex-wrap: wrap;
+
+  margin: .3rem;
   gap: .75em;
 
-  top: .5rem;
-  right: .5rem;
+  top: 3%;
+  right: 3%;
 
   text-wrap: wrap;
 

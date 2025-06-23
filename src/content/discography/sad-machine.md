@@ -1,6 +1,6 @@
 ---
 title: "Sad Machine"
-cover: "/assets/discography/SadCover.jpg"
+cover: "public/discography/SadCover.png"
 order: 1
 date: ""
 tags:

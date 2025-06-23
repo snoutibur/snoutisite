@@ -1,6 +1,6 @@
 ---
 title: "Shelter"
-cover: "/assets/discography/Shelter.jpg"
+cover: "public/discography/Shelter.png"
 order: 2
 date: ""
 tags:

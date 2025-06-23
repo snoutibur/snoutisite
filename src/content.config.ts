@@ -1,6 +1,5 @@
 import { defineCollection, z } from 'astro:content';
-import { glob, file } from 'astro/loaders';
-import {pattern} from "regex";
+import { glob } from 'astro/loaders';
 
 // Defining collections
 const discography = defineCollection({
