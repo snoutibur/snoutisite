@@ -6,7 +6,7 @@ export async function getDiscography()  {
     const discographyItems = await getCollection("discography");
     const discography = discographyItems.sort(
         (a: CollectionEntry<"discography">, b: CollectionEntry<"discography">) =>
-            a.data.order - b.data.order
+            b.data.order - a.data.order
     );
 
     // Import cover images
