@@ -1,7 +1,14 @@
 ---
-
 import BaseLayout from "../layouts/BaseLayout.astro";
-import DiscographyCard from "../components/DiscographyCard.astro";---
+import DiscographyCard from "../components/DiscographyCard.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+const discographyItems = await getCollection('discography');
+const discography = discographyItems.sort((a: CollectionEntry<'discography'>, b: CollectionEntry<'discography'>) =>
+    a.data.order - b.data.order
+);
+---
 
 <BaseLayout>
     <Fragment slot="head">
@@ -13,6 +20,15 @@ import DiscographyCard from "../components/DiscographyCard.astro";---
     </header>
 
     <main>
-        <DiscographyCard cover="img/landing.webp" link="#" title="rawr" tags={["furry", "rawr"]} />
+        <section class="discography-grid">
+            {discography.map((item: CollectionEntry<'discography'>) => (
+                    <DiscographyCard
+                            title={item.data.title}
+                            cover={item.data.cover}
+                            tags={item.data.tags}
+                            link={`/discography/${item.slug}`}
+                    />
+            ))}
+        </section>
     </main>
 </BaseLayout>
