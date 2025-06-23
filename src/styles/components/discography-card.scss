@@ -1,7 +1,7 @@
 .discography-card {
   display: flex;
   flex-direction: column;
-  flex: 1 1 300px;
+  flex: 1 1;
 
   align-items: center;
   text-align: center;
@@ -9,7 +9,7 @@
   position: relative;
   overflow: hidden;
 
-  min-width: 180px;
+  min-width: 8rem;
   max-width: 42rem;
 
   border-radius: .5em;

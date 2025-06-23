@@ -4,6 +4,10 @@
 @use "./components/decorations.css";
 
 /* Webpage Essentials */
+html {
+    font-size: 80%;
+}
+
 header {
     position: relative;
     z-index: 5;
@@ -36,7 +40,7 @@ main {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 1.75em;
 }
 
 /* Responsive */
