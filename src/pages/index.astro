@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
 import "@styles/pages/landing.scss"
+import {Image} from "astro:assets";
 ---
 
 <BaseLayout>
@@ -32,12 +33,27 @@ import "@styles/pages/landing.scss"
         </section>
 
         <section id="featured">
-
-        </section>
             <h1>Featured</h1>
 
-        <section id="aboutme">
-            <h1>About me</h1>
+        </section>
+
+        <section id="about-me">
+
+            <Image
+                src={import('../assets/img/landing.webp')}
+                alt="Profile Picture"
+                sizes="(max-width: 2048px) 100vw, 300px"
+                quality={80}
+                format="webp"
+            />
+            <div id="blurb">
+                <h1>Haii!</h1>
+
+                <p>
+                    I'm snoutibur something something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum. something something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum. something something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum. something something lorem ipsum uh something lorem ipsum uh something lorem ipsum uh something lorem ipsum.
+                </p>
+            </div>
+
         </section>
     </main>
 </BaseLayout>

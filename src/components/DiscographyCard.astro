@@ -15,7 +15,7 @@ const {title, cover, link, tags = []} = Astro.props;
 <article class="discography-card">
     <a href={link}>
 
-        <Image  src={cover}
+        <Image src={cover}
                 alt={`Cover art for ${title}`}
                 widths={[300, 600, 900]}
                 sizes="(max-width: 900px) 100vw, 300px"
