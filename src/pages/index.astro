@@ -11,15 +11,33 @@ import {Image} from "astro:assets";
 
     <main>
         <section id="title">
-            <div id="landing-title">
-                <h1>snoutibur</h1>
-                <ul>
-                    <li>Artist</li>
-                    <li>Musician</li>
-                    <li>Programmer</li>
-                </ul>
+            <Image
+                    id="hero"
+                    src={import('../assets/img/landing.webp')}
+                    alt="Profile Picture"
+                    sizes="(max-width: 2048px) 100vw, 300px"
+                    quality={80}
+                    format="webp"
+            />
 
-                <p><i>HAI!!</i></p>
+            <div id="title-content">
+                <div>
+                    <h1>snoutibur</h1>
+                    <ul>
+                        <li>Artist</li>
+                        <li>Musician</li>
+                        <li>Programmer</li>
+                    </ul>
+                </div>
+
+                <hr>
+
+                <div>
+                    <h2>Haii!</h2>
+                    <p>
+                        I go by snoutibur on the internet. I am a CS student & major who spends most of their time programming and making music. I also love doing digital art, photography,
+                    </p>
+                </div>
 
                 <ul class="socials-list">
                     <li>
@@ -29,32 +47,16 @@ import {Image} from "astro:assets";
                         <a href="https://www.youtube.com/@snoutibur"><img src="/socials/YouTube.svg" alt="YouTUbe Channel" class="socials"></a>
                     </li>
                 </ul>
+
+                <br>
+                <small><i>
+                    I prefer to remain reasonably anonymous online. Thank you for respecting that.
+                </i></small>
             </div>
         </section>
 
         <section id="featured">
             <h1>Featured</h1>
-        </section>
-
-        <section class="split-card">
-            <Image
-                src={import('../assets/img/landing.webp')}
-                alt="Profile Picture"
-                sizes="(max-width: 2048px) 100vw, 300px"
-                quality={80}
-                format="webp"
-            />
-            <div id="blurb">
-                <h1>Haii!</h1>
-                <p>
-                    I go by snoutibur on the internet. I am a CS student & major who spends most of their time programming and making music. I also love doing digital art, photography,
-                </p>
-
-                <small><i>
-                    I prefer to remain reasonably anonymous online. Thank you for respecting that.
-                </i></small>
-            </div>
-
         </section>
     </main>
 </BaseLayout>
