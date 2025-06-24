@@ -16,7 +16,7 @@
 	
 	padding: 5rem;
 	background-color: #10173a29;
-	border-radius: .5em;
+	border-radius: var(--border-radius);
 
 	backdrop-filter: blur(1px);
 	text-shadow: 2px 2px 3px #000a41db;
@@ -32,12 +32,15 @@
 	}
 }
 
-#about-me {
+
+
+.split-card {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 2fr;
 	gap: 2em;
 
 	border: var(--accent) solid .3em;
+	border-radius: var(--border-radius);
 	padding: 1em;
 
 	img {
@@ -46,8 +49,8 @@
 		width: 100%;
 		height: auto;
 		border: var(--accent) solid .2em;
+		border-radius: var(--border-radius);
 		display: block;
-		border-radius: 1em;
 	}
 }
 
@@ -56,6 +59,6 @@
 	#title {
 		margin: -2rem -2rem 0rem -2rem;
 		height: calc(100vh + 1rem);
-		border-radius: 0em;
+		border-radius: 0;
 	}
 }
