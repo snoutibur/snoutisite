@@ -54,89 +54,65 @@ import { Masonry } from 'astro-masonry';
         </section>
 
         <section id="featured">
+            <Masonry
+                    breakpointCols={{
+                        default: 3,
+                        1200: 3,
+                        800: 2,
+                        420: 1
+                    }}
+            >
+                <a href="/artworks">
+                    <article class="split-card">
+                        <Image
+                                id="hero"
+                                src={import('../assets/img/landing.webp')}
+                                alt=""
+                                sizes="(max-width: 2048px) 100vw, 300px"
+                                quality={80}
+                                format="webp"
+                        />
+                        <h1>Artworks</h1>
+                        <p>
+                            Visual artworks such profile pictures, illustrations and stained glass (+ templates!).
+                            <br>(Will be released eventually!)
+                        </p>
+                    </article>
+                </a>
 
+                <a href="/discography">
+                    <article class="split-card">
+                        <Image
+                                src={import('../assets/img/landing.webp')}
+                                alt=""
+                                sizes="(max-width: 2048px) 100vw, 300px"
+                                quality={80}
+                                format="webp"
+                        />
+                        <h1>Music</h1>
+                        <p>
+                            Music I've written, produced and released. Mainly electronic or orchestral heavily inspired by Porter Robinson.<br>
+                        </p>
+                    </article>
+                </a>
+
+                <a href="/">
+                    <article class="split-card">
+                        <Image
+                                src={import('../assets/img/landing.webp')}
+                                alt=""
+                                sizes="(max-width: 2048px) 100vw, 300px"
+                                quality={80}
+                                format="webp"
+                        />
+                        <h1>Misc Stuff</h1>
+                        <p>
+                            Items that don't fit in any other category, such as configuration files, 3D printable items and max4live devices.
+                            <i>Currently, it's just Ableton stuff... I'll add the rest eventually :33.</i>
+                        </p>
+                    </article>
+                </a>
+            </Masonry>
         </section>
-
-
-        <Masonry
-                breakpointCols={{
-                    default: 4,
-                    1200: 3,
-                    800: 2
-                }}
-        >
-            <article class="split-card">
-                <Image
-                        id="hero"
-                        src={import('../assets/img/landing.webp')}
-                        alt=""
-                        sizes="(max-width: 2048px) 100vw, 300px"
-                        quality={80}
-                        format="webp"
-                />
-                <h1>Artworks</h1>
-                <p>
-                    Will be released eventually!
-                </p>
-            </article>
-
-            <article class="split-card">
-                <Image
-                        id="hero"
-                        src={import('../assets/img/landing.webp')}
-                        alt=""
-                        sizes="(max-width: 2048px) 100vw, 300px"
-                        quality={80}
-                        format="webp"
-                />
-                <h1>Music</h1>
-                <p>
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                </p>
-            </article>
-
-            <article class="split-card">
-                <Image
-                        id="hero"
-                        src={import('../assets/img/landing.webp')}
-                        alt=""
-                        sizes="(max-width: 2048px) 100vw, 300px"
-                        quality={80}
-                        format="webp"
-                />
-                <h1>Nerd Stuff</h1>
-                <p>
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                </p>
-            </article>
-
-            <article class="split-card">
-                <Image
-                        id="hero"
-                        src={import('../assets/img/landing.webp')}
-                        alt=""
-                        sizes="(max-width: 2048px) 100vw, 300px"
-                        quality={80}
-                        format="webp"
-                />
-                <h1>Test Frame</h1>
-                <p>
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                </p>
-            </article>
-        </Masonry>
-
     </main>
 </BaseLayout>
