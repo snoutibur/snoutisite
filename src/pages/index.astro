@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
 import "@styles/pages/landing.scss"
-import {Image} from "astro:assets";
+import { Image } from "astro:assets";
+import { Masonry } from 'astro-masonry';
 ---
 
 <BaseLayout>
@@ -53,6 +54,17 @@ import {Image} from "astro:assets";
         </section>
 
         <section id="featured">
+
+        </section>
+
+
+        <Masonry
+                breakpointCols={{
+                    default: 4,
+                    1200: 3,
+                    800: 2
+                }}
+        >
             <article class="split-card">
                 <Image
                         id="hero"
@@ -96,14 +108,14 @@ import {Image} from "astro:assets";
                         quality={80}
                         format="webp"
                 />
-                    <h1>Nerd Stuff</h1>
-                    <p>
-                        lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                        lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                        lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                        lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                        lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
-                    </p>
+                <h1>Nerd Stuff</h1>
+                <p>
+                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
+                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
+                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
+                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
+                    lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
+                </p>
             </article>
 
             <article class="split-card">
@@ -124,6 +136,7 @@ import {Image} from "astro:assets";
                     lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame. lorem ipsum lorem ipsum. Lorem is lame.
                 </p>
             </article>
-        </section>
+        </Masonry>
+
     </main>
 </BaseLayout>

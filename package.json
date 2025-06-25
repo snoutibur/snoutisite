@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.18.0",
-    "astro": "^5.10.0"
+    "astro": "^5.10.0",
+    "astro-masonry": "^1.2.2"
   },
   "devDependencies": {
     "sass": "^1.89.2"
