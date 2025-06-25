@@ -12,7 +12,7 @@
 
 	/* Visual Styling */
 	border: solid var(--accent) 0.3em;
-	border-radius: 1em;
+	border-radius: var(--border-radius);
 	overflow: hidden;
 
 	#hero {
@@ -28,14 +28,12 @@
 
 		border: none;
 		border-radius: 0;
-		margin: -2rem -2rem 0 -2rem;
 
 		#hero {
 			position: absolute;
 			top: 0; left: 0;
 			right: 0; bottom: 0;
 
-			width: 100%;
 			height: 100%;
 			object-fit: cover;
 			z-index: 0;
@@ -122,23 +120,41 @@
 
 // Split card for page content
 .split-card {
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-	gap: 2em;
-
 	border: var(--accent) solid 0.3em;
 	border-radius: var(--border-radius);
 	padding: 1em;
 
+	height: fit-content;
+	width: fit-content;
+
 	img {
+		display: block;
+		float: left;
+
+		width: 33%;
+		height: auto;
+		margin: 1em;
+
 		aspect-ratio: 1 / 1;
 		object-fit: cover;
 
-		width: 100%;
-		height: auto;
-
 		border: var(--accent) solid 0.2em;
 		border-radius: var(--border-radius);
-		display: block;
+	}
+
+	@media only screen and (min-width: 800px) {
+		max-width: 25%;
+	}
+}
+
+#featured {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1.66em;
+
+	@media only screen and (max-width: 600px) {
+		flex-direction: column;
 	}
 }
