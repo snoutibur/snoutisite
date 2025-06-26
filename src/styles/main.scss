@@ -6,6 +6,7 @@
 /* Webpage Essentials */
 html {
     font-size: 80%;
+    height: 100%;
 }
 
 header {
@@ -24,10 +25,12 @@ body {
     background-color: var(--body-bg);
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 main {
     padding: .1rem;
+    height: 100%;
 
     img {
         width: 100%;

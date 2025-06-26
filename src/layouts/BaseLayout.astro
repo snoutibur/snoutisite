@@ -1,6 +1,7 @@
 ---
 import "../styles/main.scss";
 import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en">
@@ -17,8 +18,8 @@ import Navbar from "../components/Navbar.astro";
 </head>
 
 <body>
-<Navbar/>
-<slot/>
+    <Navbar/>
+    <slot/>
+    <Footer/>
 </body>
-
 </html>

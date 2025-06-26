@@ -140,7 +140,11 @@
 }
 
 #featured {
+	position: relative;
+	border: var(--accent) solid .2rem;
+	border-radius: var(--border-radius);
 	text-align: center;
+
 	a {
 		color: var(--text-primary);
 		text-decoration: none;
