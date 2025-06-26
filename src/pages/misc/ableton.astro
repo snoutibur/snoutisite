@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import "@styles/components/cards.scss";
-import {Image} from "astro:assets";
 import {Masonry} from "astro-masonry";
+import {Image} from "astro:assets";
 ---
 
 <BaseLayout>
@@ -12,6 +12,10 @@ import {Masonry} from "astro-masonry";
 
     <header>
         <h1>Ableton Stuffs</h1>
+        <p>
+            Collection of items designed for use in Ableton Live.<br>
+            <small><i>Note that some screenshots are outdated.</i></small>
+        </p>
     </header>
 
     <main>
@@ -19,22 +23,33 @@ import {Masonry} from "astro-masonry";
             <h1>Live Themes</h1>
             <h2>Themes designed for Ableton Live</h2>
 
+            <article>
+                <h3>Installation:</h3>
+                <p>
+                    <br><strong>macOS</strong><br>
+                    Place theme files under:
+
+                    <br><strong>Windows</strong><br>
+                    Place theme files under:
+                </p>
+            </article>
+
+
             <Masonry
                     breakpointCols={{
                         default: 3,
                         1200: 3,
-                        800: 2,
-                        420: 1
+                        800: 1,
                     }}
             >
                 <article class="split-card">
                     <a href="https://github.com/snoutibur/AbletonGoodies/blob/main/Flofa3/Flofa3SS.png?raw=true"
-                                target="_blank">
+                       target="_blank">
                         <img src="https://raw.githubusercontent.com/snoutibur/AbletonGoodies/refs/heads/main/Flofa3/Flofa3SS.png"
-                                alt="Screenshot of Flofa 3 theme.">
+                             alt="Screenshot of Flofa 3 theme.">
                     </a>
 
-                    <h1>Flofa III</h1>
+                    <h1>Flofa 3</h1>
                     <p>
                         A dark theme designed for Ableton 12 that strikes a balance between looks and usability.<br>
                         It looks quite nice when colored to fit Catppuccin: Under Live settings > Theme & Colors > <i>Brightness:
@@ -43,8 +58,7 @@ import {Masonry} from "astro-masonry";
 
                     <p>
                         Last updated October 30, 2024.
-                        Originally Designed Mid-December, 2023.
-                        <small>Screenshot may be outdated.</small>
+                        Originally Designed Mid-December, 2023.<br>
                     </p>
 
                     <a
@@ -54,15 +68,93 @@ import {Masonry} from "astro-masonry";
                     >
                         Download on GitHub
                     </a>
+                </article>
 
+                <article class="split-card">
+                    <h1>Flofa 2</h1>
+                    <p>
+                        A mid-dark theme designed for Ableton Live 11 that focuses on usability with hints of eye candy.<br>
+                        Flofa 1 doesn't exist. :3
+
+                        Designed in early 2022<br>
+                    </p>
+
+                    <a
+                            href="https://www.livethemes.co/themes/flofa/42852"
+                            target="_blank"
+                            class="button"
+                    >
+                        View on LiveThemes.co
+                    </a>
+
+                    <div class="tags">
+                        <span class="tag">Live 12</span>
+                    </div>
+                </article>
+
+                <article class="split-card">
+                    <h1>Fluf</h1>
+                    <p>
+                        My first theme for Ableton Live. A simple mid-dark theme designed designed for Ableton Live 10.<br>
+                        Designed in 2021.
+                    </p>
+
+                    <a
+                            href="https://www.livethemes.co/themes/fluf/26452"
+                            target="_blank"
+                            class="button"
+                    >
+                        View on LiveThemes.co
+                    </a>
+
+                    <div class="tags">
+                        <span class="tag">Live 12</span>
+                    </div>
                 </article>
             </Masonry>
         </section>
 
+        <hr>
+
         <section id="max-devices">
             <h1>max4live devices</h1>
             <h2>Plugins for Ableton Live created in max</h2>
+            <article>
+                <h3>Installation:</h3>
+                <p>
+                    Simply place the device underneath any folder accessible by Ableton Live, or simply drag the device into the device bar.
+                </p>
+            </article>
 
+            <Masonry
+                    breakpointCols={{
+                        default: 2,
+                        1200: 2,
+                        800: 1,
+                    }}
+            >
+
+                <article class="split-card">
+                    <img src="https://raw.githubusercontent.com/snoutibur/AbletonGoodies/refs/heads/main/Koutput/Screenshot.png" alt="Koutput Screenshot">
+                    <h1>KOUTPUT</h1>
+                    <p>
+                        An audio aggregator and merger built for Ableton Live using Max4Live that utilizes system audio routing.<br>
+                        Be warned that this device isn't exactly user friendly and was designed to fulfill a niche.
+                    </p>
+
+                    <a
+                            href="https://www.livethemes.co/themes/fluf/26452"
+                            target="_blank"
+                            class="button"
+                    >
+                        Download on GitHub (Docs eventually)
+                    </a>
+
+                    <div class="tags">
+                        <span class="tag">Live 12</span>
+                    </div>
+                </article>
+            </Masonry>
         </section>
     </main>
 </BaseLayout>
