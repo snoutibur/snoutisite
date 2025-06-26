@@ -1,0 +1,45 @@
+.split-card {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin: 1rem;
+
+  border: var(--accent) solid 0.3em;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+  * {
+    margin: .5em;
+  }
+
+  img {
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.tags {
+  display: flex;
+  position: absolute;
+
+  flex-wrap: wrap;
+
+  margin: .3rem;
+  gap: .3em;
+
+  top: 5%;
+  right: 3%;
+
+  text-wrap: wrap;
+
+  .tag {
+    font-size: .83em;
+    background-color: var(--accent);
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+    padding: .3rem .3rem;
+    border-radius: 1em;
+    line-height: 1.25;
+  }
+}
