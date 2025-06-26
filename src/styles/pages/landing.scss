@@ -12,7 +12,7 @@
 
 	/* Visual Styling */
 	border: solid var(--accent) 0.3em;
-	border-radius: 1em;
+	border-radius: var(--border-radius);
 	overflow: hidden;
 
 	#hero {
@@ -28,14 +28,12 @@
 
 		border: none;
 		border-radius: 0;
-		margin: -2rem -2rem 0 -2rem;
 
 		#hero {
 			position: absolute;
 			top: 0; left: 0;
 			right: 0; bottom: 0;
 
-			width: 100%;
 			height: 100%;
 			object-fit: cover;
 			z-index: 0;
@@ -55,8 +53,8 @@
 	position: relative;
 	z-index: 1;
 
-	width: 33%;
-	max-width: 30rem;
+	width: 42%;
+	max-width: 62rem;
 
 	padding: 2rem;
 	margin: 3rem auto 3rem auto;
@@ -72,6 +70,10 @@
 	text-align: center;
 	text-shadow: 2px 2px 12px #000a41db;
 
+	* {
+		margin: .5em;
+	}
+
 	ul {
 		display: flex;
 		justify-content: center;
@@ -80,19 +82,16 @@
 
 		list-style: none;
 		padding: 0;
-		margin: 0;
+	}
+
+	hr {
+		margin: 1.66rem;
 	}
 
 	/* Desktop tweaks: ensure box fits within hero height */
 	@media (min-width: 860px) {
-		width: 33%;
 		margin: 5rem auto 3rem auto;
-		max-height: calc(100vh - 8rem); /* Constrain vertical space: subtract vertical margins so scroll fits */
-		/*
-          Explanation: If top+bottom margins total 8rem (5rem top + 3rem bottom),
-          this ensures the scrollable area fits inside 100vh.
-          Adjust this subtraction if you change margin values.
-        */
+		max-height: calc(100vh - 8rem);
 		overflow-y: auto;
 	}
 
@@ -119,26 +118,38 @@
 	}
 }
 
-
 // Split card for page content
 .split-card {
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-	gap: 2em;
+	display: flex;
+	flex-direction: column;
+	height: fit-content;
+	margin: 1rem;
 
 	border: var(--accent) solid 0.3em;
 	border-radius: var(--border-radius);
-	padding: 1em;
+	overflow: hidden;
+
+	* {
+		margin: .5em;
+	}
 
 	img {
 		aspect-ratio: 1 / 1;
 		object-fit: cover;
-
-		width: 100%;
 		height: auto;
+		width: 100%;
+		margin: 0;
+	}
+}
 
-		border: var(--accent) solid 0.2em;
-		border-radius: var(--border-radius);
-		display: block;
+#featured {
+	position: relative;
+	border: var(--accent) solid .2rem;
+	border-radius: var(--border-radius);
+	text-align: center;
+
+	a {
+		color: var(--text-primary);
+		text-decoration: none;
 	}
 }

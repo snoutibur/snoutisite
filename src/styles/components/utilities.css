@@ -5,6 +5,12 @@
 }
 
 /* Socials */
+#socials {
+    * {
+        margin: .5rem;
+    }
+}
+
 .socials-list {
     display: flex;
     justify-content: center;
