@@ -20,7 +20,7 @@ header {
 }
 
 body {
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
     background-color: var(--body-bg);
     margin: 0;
     padding: 0;
@@ -45,6 +45,30 @@ main {
 
 h1 {
     font-size: 1.75em;
+}
+
+.button {
+    text-align: center;
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s;
+
+    border: none;
+    border-radius: var(--border-radius);
+    padding: .5em;
+
+    font-family: 'Courier New', Courier, monospace;
+
+    a:link, a:visited, a:hover, a:active {
+        color: var(--text-primary);
+        text-decoration: none;
+        background-color: var(--accent);
+    }
+
+    /* Focus state for accessibility */
+    &:focus {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+    }
 }
 
 /* Responsive */

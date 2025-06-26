@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import "@styles/components/cards.scss";
+import {Image} from "astro:assets";
+import {Masonry} from "astro-masonry";
 ---
 
 <BaseLayout>
@@ -15,15 +18,50 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         <section id="themes">
             <h1>Live Themes</h1>
             <h2>Themes designed for Ableton Live</h2>
-            <hr>
 
+            <Masonry
+                    breakpointCols={{
+                        default: 3,
+                        1200: 3,
+                        800: 2,
+                        420: 1
+                    }}
+            >
+                <article class="split-card">
+                    <a href="https://github.com/snoutibur/AbletonGoodies/blob/main/Flofa3/Flofa3SS.png?raw=true"
+                                target="_blank">
+                        <img src="https://raw.githubusercontent.com/snoutibur/AbletonGoodies/refs/heads/main/Flofa3/Flofa3SS.png"
+                                alt="Screenshot of Flofa 3 theme.">
+                    </a>
 
+                    <h1>Flofa III</h1>
+                    <p>
+                        A dark theme designed for Ableton 12 that strikes a balance between looks and usability.<br>
+                        It looks quite nice when colored to fit Catppuccin: Under Live settings > Theme & Colors > <i>Brightness:
+                        134%, Color Intensity: 77%, Color Hue: 240°</i>
+                    </p>
+
+                    <p>
+                        Last updated October 30, 2024.
+                        Originally Designed Mid-December, 2023.
+                        <small>Screenshot may be outdated.</small>
+                    </p>
+
+                    <a
+                            href="https://github.com/snoutibur/AbletonGoodies/blob/main/Flofa3/FlofaIII.ask"
+                            target="_blank"
+                            class="button"
+                    >
+                        Download on GitHub
+                    </a>
+
+                </article>
+            </Masonry>
         </section>
 
         <section id="max-devices">
             <h1>max4live devices</h1>
             <h2>Plugins for Ableton Live created in max</h2>
-            <hr>
 
         </section>
     </main>
