@@ -70,6 +70,10 @@
 	text-align: center;
 	text-shadow: 2px 2px 12px #000a41db;
 
+	* {
+		margin: .5em;
+	}
+
 	ul {
 		display: flex;
 		justify-content: center;
@@ -78,7 +82,10 @@
 
 		list-style: none;
 		padding: 0;
-		margin: 0;
+	}
+
+	hr {
+		margin: 1.66rem;
 	}
 
 	/* Desktop tweaks: ensure box fits within hero height */
@@ -122,20 +129,15 @@
 	border-radius: var(--border-radius);
 	overflow: hidden;
 
+	* {
+		margin: .5em;
+	}
+
 	img {
 		aspect-ratio: 1 / 1;
 		object-fit: cover;
 		height: auto;
 		width: 100%;
-	}
-
-	h1 {
-		margin: .5em;
-		margin-bottom: .1em;
-	}
-
-	p {
-		margin: 1em;
 	}
 }
 
