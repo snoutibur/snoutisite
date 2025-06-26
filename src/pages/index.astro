@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
 import "@styles/pages/landing.scss"
+import { Image } from "astro:assets";
+import { Masonry } from 'astro-masonry';
 ---
 
 <BaseLayout>
@@ -8,37 +10,121 @@ import "@styles/pages/landing.scss"
         <title>snoutibur home</title>
     </Fragment>
 
-    <!--TODO: Sectioned title & about homepage-->
-
     <main>
         <section id="title">
-            <div id="landing-title">
-                <h1>snoutibur</h1>
-                <ul>
-                    <li>Artist</li>
-                    <li>Musician</li>
-                    <li>Programmer</li>
-                </ul>
+            <Image
+                    id="hero"
+                    src={import('../assets/img/landing.webp')}
+                    alt="Landing hero image"
+                    sizes="(max-width: 2048px) 100vw, 300px"
+                    quality={80}
+                    format="webp"
+            />
 
-                <p><i>HAI!!</i></p>
+            <div id="title-content">
+                <div>
+                    <h1>snoutibur</h1>
+                    <ul>
+                        <li>Artist</li>
+                        <li>Musician</li>
+                        <li>Programmer</li>
+                    </ul>
+                    <p>he / him</p>
+                </div>
 
-                <ul class="socials-list">
-                    <li>
-                        <a href="https://github.com/snoutibur"><img src="/socials/GitHub.svg" alt="GitHub Profile" class="socials"></a>
-                    </li>
-                    <li>
-                        <a href="https://www.youtube.com/@snoutibur"><img src="/socials/YouTube.svg" alt="YouTUbe Channel" class="socials"></a>
-                    </li>
-                </ul>
+                <hr>
+
+                <div>
+                    <h2>Haii!</h2>
+                    <p>
+                        I am a student majoring in Computer Science. Outside of programming, I love composing and producing music, and digital art.<br>
+                        Here and there, I do photography, 3D design & printing and video editing.<br>
+                        I like sharing my work, scroll down a bit to see some of it!
+                    </p>
+                </div>
+
+                <article id="socials">
+                    <h3>Socials</h3>
+                    <ul class="socials-list">
+                        <li>
+                            <a href="discord.com/users/490265170277662720">
+                                <img src="/socials/" alt="Discord Logo" class="socials">
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://github.com/snoutibur">
+                                <img src="/socials/GitHub.svg" alt="GitHub Logo" class="socials">
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.youtube.com/@snoutibur"><img src="/socials/YouTube.svg" alt="YouTube Logo" class="socials"></a>
+                        </li>
+                    </ul>
+                </article>
             </div>
         </section>
 
-        <section id="aboutme">
-            <h1>Hai!</h1>
-            <h2>Bai</h2>
-            <h3>rar</h3>
+        <section id="featured">
+            <Masonry
+                    breakpointCols={{
+                        default: 3,
+                        1200: 3,
+                        800: 2,
+                        420: 1
+                    }}
+            >
+                <a href="/artworks">
+                    <article class="split-card">
+                        <Image
+                                src={import('../assets/img/landing.webp')}
+                                alt="thumbnail"
+                                sizes="(max-width: 2048px) 100vw, 300px"
+                                quality={80}
+                                format="webp"
+                        />
+                        <h1>Artworks</h1>
+                        <p>
+                            Visual artworks such profile pictures, illustrations and stained glass (+ templates!).
+                            <br>(Will be released eventually!)
+                        </p>
+                    </article>
+                </a>
+
+                <a href="/discography">
+                    <article class="split-card">
+                        <Image
+                                src={import('../assets/img/landing.webp')}
+                                alt="thumbnail"
+                                sizes="(max-width: 2048px) 100vw, 300px"
+                                quality={80}
+                                format="webp"
+                        />
+                        <h1>Music</h1>
+                        <p>
+                            Music I've written, produced and released. Mainly electronic or orchestral heavily inspired by Porter Robinson.<br>
+                        </p>
+                    </article>
+                </a>
+
+                <a href="/misc/landing">
+                    <article class="split-card">
+                        <Image
+                                src={import('../assets/img/landing.webp')}
+                                alt="thumbnail"
+                                sizes="(max-width: 2048px) 100vw, 300px"
+                                quality={80}
+                                format="webp"
+                        />
+                        <h1>Misc Stuff</h1>
+                        <p>
+                            Items that don't fit in any other category, such as configuration files, 3D printable items and max4live devices.
+                            <i>Currently, it's just Ableton stuff... I'll add the rest eventually :33.</i>
+                        </p>
+                    </article>
+                </a>
+            </Masonry>
         </section>
     </main>
-
-
 </BaseLayout>

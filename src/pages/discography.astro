@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DiscographyCard from "../components/DiscographyCard.astro";
+import '@styles/pages/discography.scss'
+
+import type { CollectionEntry } from "astro:content";
+import {getDiscography} from "../scripts/getDiscography";
+const discographyImages = await getDiscography();
+---
+
+<BaseLayout>
+    <Fragment slot="head">
+        <title>Discography</title>
+    </Fragment>
+
+    <header>
+        <h1>Discography</h1>
+    </header>
+
+    <main>
+        <section class="discography-layout">
+            {discographyImages.map((item) => (
+                    <DiscographyCard
+                            title={item.data.title}
+                            cover={item.coverImage}
+                            tags={item.data.tags}
+                            link={`/discography/${item.slug}`}
+                    />
+            ))}
+        </section>
+    </main>
+</BaseLayout>

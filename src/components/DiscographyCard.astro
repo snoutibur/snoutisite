@@ -1,0 +1,37 @@
+---
+import "../styles/components/discography-card.scss"
+import { Image } from 'astro:assets'
+
+export interface Props {
+    title: string;
+    cover: string;
+    link: string;
+    tags?: string[];
+}
+
+const {title, cover, link, tags = []} = Astro.props;
+---
+
+<article class="discography-card">
+    <a href={link}>
+
+        <Image src={cover}
+                alt={`Cover art for ${title}`}
+                widths={[300, 600, 900]}
+                sizes="(max-width: 900px) 100vw, 300px"
+                quality={80}
+                format="webp"
+                style={{ aspectRatio: "8 / 3", objectFit: "cover" }}
+        />
+
+        <h2>{title}</h2>
+    </a>
+
+    {tags.length > 0 && (
+            <div class="tags">
+                {tags.map(tag => (
+                        <span class="tag">{tag}</span>
+                ))}
+            </div>
+    )}
+</article>

@@ -4,6 +4,10 @@
 @use "./components/decorations.css";
 
 /* Webpage Essentials */
+html {
+    font-size: 80%;
+}
+
 header {
     position: relative;
     z-index: 5;
@@ -12,7 +16,7 @@ header {
     background-color: rgb(40, 13, 65);
 
     padding: .5rem;
-    padding-left: 5rem;
+    padding-left: var(--navbar-width-large);
 }
 
 body {
@@ -33,30 +37,20 @@ main {
         color: #9fe5ff;
         text-decoration: none;
     }
+
+    margin-bottom: var(navbar-width-small);
+    padding-left: .5rem;
+    padding-right: .5rem;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 1.75em;
 }
 
 /* Responsive */
-@media only screen and (max-width: 600px) {
-    main {
-        margin-bottom: 3rem;
-
-        padding-left: .5rem;
-        padding-right: .5rem;
-    }
-
-    header {
-        padding-left: .5rem;
-        padding-right: .5rem;
-    }
-}
-
 @media only screen and (min-width: 600px) {
     main {
-        margin-left: 5rem;
+        margin-left: var(--navbar-width-large);
         margin-top: .75rem;
         padding-left: 2rem;
         padding-right: 2rem;
@@ -70,9 +64,5 @@ h1 {
         margin-left: 5rem;
         margin-right: 0;
         text-align: center;
-    }
-
-    .media {
-        max-width: 60%;
     }
 }

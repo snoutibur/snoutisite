@@ -1,0 +1,61 @@
+.discography-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 18rem;
+  flex-wrap: wrap;
+
+  align-items: center;
+  text-align: center;
+
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+
+  border-radius: .5em;
+  border: solid var(--accent) .2rem;
+  background-color: var(--bg-primary);
+
+  picture, img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 8 / 3;
+    object-fit: cover;
+  }
+
+  a:link, a:visited, a:hover, a:active {
+    display: block;
+    width: 100%;
+    color: var(--text-primary);
+    text-decoration: none;
+
+    h2 {
+      margin: .25em;
+    }
+  }
+}
+
+.tags {
+  display: flex;
+  position: absolute;
+
+  flex-wrap: wrap;
+
+  margin: .3rem;
+  gap: .3em;
+
+  top: 5%;
+  right: 3%;
+
+  text-wrap: wrap;
+
+  .tag {
+    font-size: .83em;
+    background-color: var(--accent);
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+    padding: .3rem .3rem;
+    border-radius: 1em;
+    line-height: 1.25;
+  }
+}
