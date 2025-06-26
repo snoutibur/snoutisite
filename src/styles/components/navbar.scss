@@ -58,7 +58,7 @@
 @media only screen and (max-width: 600px) {
     .navbar {
         bottom: 0;
-        width: 100vw;
+        width: calc(100vw - 1.25rem);
         height: 3rem;
     }
 
