@@ -1,0 +1,22 @@
+.split-card {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin: 1rem;
+
+  border: var(--accent) solid 0.3em;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+  * {
+    margin: .5em;
+  }
+
+  img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+    margin: 0;
+  }
+}
