@@ -37,6 +37,10 @@ main {
         color: #9fe5ff;
         text-decoration: none;
     }
+
+    margin-bottom: var(navbar-width-small);
+    padding-left: .5rem;
+    padding-right: .5rem;
 }
 
 h1 {
@@ -44,19 +48,6 @@ h1 {
 }
 
 /* Responsive */
-@media only screen and (max-width: 600px) {
-    main {
-        margin-bottom: var(navbar-width-small);
-        padding-left: .5rem;
-        padding-right: .5rem;
-    }
-
-    header {
-        padding-left: .5rem;
-        padding-right: .5rem;
-    }
-}
-
 @media only screen and (min-width: 600px) {
     main {
         margin-left: var(--navbar-width-large);
@@ -73,9 +64,5 @@ h1 {
         margin-left: 5rem;
         margin-right: 0;
         text-align: center;
-    }
-
-    .media {
-        max-width: 60%;
     }
 }
