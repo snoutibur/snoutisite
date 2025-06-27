@@ -68,16 +68,15 @@ import { Masonry } from 'astro-masonry';
         <section id="featured">
             <Masonry
                     breakpointCols={{
-                        default: 3,
-                        1200: 3,
-                        800: 2,
-                        420: 1
+                        default: 4,
+                        1200: 2,
+                        621: 1,
                     }}
             >
                 <a href="/artworks">
                     <article class="split-card">
                         <Image
-                                src={import('../assets/img/landing.webp')}
+                                src={import('../assets/img/ArtThumbnail.png')}
                                 alt="thumbnail"
                                 sizes="(max-width: 2048px) 100vw, 300px"
                                 quality={80}
@@ -93,13 +92,6 @@ import { Masonry } from 'astro-masonry';
 
                 <a href="/discography">
                     <article class="split-card">
-                        <Image
-                                src={import('../assets/img/landing.webp')}
-                                alt="thumbnail"
-                                sizes="(max-width: 2048px) 100vw, 300px"
-                                quality={80}
-                                format="webp"
-                        />
                         <h1>Music</h1>
                         <p>
                             Music I've written, produced and released. Mainly electronic or orchestral heavily inspired by Porter Robinson.<br>
@@ -107,15 +99,17 @@ import { Masonry } from 'astro-masonry';
                     </article>
                 </a>
 
+                <a href="/cs">
+                    <article class="split-card">
+                        <h1>CS & Programming</h1>
+                        <p>
+                            If it looks like code, it might be code.
+                        </p>
+                    </article>
+                </a>
+
                 <a href="/misc/landing">
                     <article class="split-card">
-                        <Image
-                                src={import('../assets/img/landing.webp')}
-                                alt="thumbnail"
-                                sizes="(max-width: 2048px) 100vw, 300px"
-                                quality={80}
-                                format="webp"
-                        />
                         <h1>Misc Stuff</h1>
                         <p>
                             Items that don't fit in any other category, such as configuration files, 3D printable items and max4live devices.
