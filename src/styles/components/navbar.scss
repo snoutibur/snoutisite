@@ -1,6 +1,6 @@
 :root {
     --navbar-width-large: 5rem;
-    --navbar-width-small: 3rem;
+    --navbar-height-small: 3rem;
 }
 
 .navbar {
@@ -35,7 +35,7 @@
 .nav-link {
     display: flex;
     align-items: center;
-    height: 5rem;
+    height: var(--navbar-width-large);
 
     color: var(--text-primary);
     text-decoration: none;
@@ -64,7 +64,7 @@
     .navbar {
         bottom: 0;
         width: calc(100vw - 1.25rem);
-        height: 3rem;
+        height: var(--navbar-height-small);
     }
 
     .navbar-nav {
@@ -79,7 +79,7 @@
 @media only screen and (min-width: 600px) {
     .navbar {
         top: 0;
-        width: 5rem;
+        width: var(--navbar-width-large);
         height: calc(100vh - 1.25rem);
     }
 
