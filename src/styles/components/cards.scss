@@ -8,6 +8,8 @@
   border-radius: var(--border-radius);
   overflow: hidden;
 
+  transition: all ease var(--transition-speed);
+
   * {
     margin: .5em;
   }
@@ -17,6 +19,10 @@
     height: auto;
     width: 100%;
     margin: 0;
+  }
+
+  &:hover {
+    border-color: var(--accent2);
   }
 }
 
