@@ -16,6 +16,8 @@
   border: solid var(--accent) .2rem;
   background-color: var(--bg-primary);
 
+  transition: all ease var(--transition-speed);
+
   picture, img {
     display: block;
     width: 100%;
@@ -33,5 +35,9 @@
     h2 {
       margin: .25em;
     }
+  }
+
+  &:hover {
+    border-color: var(--accent2);
   }
 }
