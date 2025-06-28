@@ -6,6 +6,7 @@
 
   border: var(--accent) solid 0.3em;
   border-radius: var(--border-radius);
+  background-color: rgba(0,0,0,.33);
   overflow: hidden;
 
   transition: all ease var(--transition-speed);
@@ -23,6 +24,12 @@
 
   &:hover {
     border-color: var(--accent2);
+  }
+}
+
+a:link, a:visited, a:active {
+  .split-card {
+    color: var(--text-primary);
   }
 }
 
