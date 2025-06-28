@@ -17,10 +17,13 @@ const {title, cover, link, tags = []} = Astro.props;
         <Image src={cover}
                 alt={`Cover art for ${title}`}
                 widths={[300, 600, 900]}
-                sizes="(max-width: 900px) 100vw, 300px"
+                sizes="(max-width: 600px) 300px, (max-width: 900px) 600px, 900px"
                 quality={80}
                 format="webp"
-                style={{ aspectRatio: "8 / 3", objectFit: "cover" }}
+                style={{
+                    aspectRatio: "8 / 3",
+                    objectFit: "cover",
+                }}
         />
 
         <h2>{title}</h2>

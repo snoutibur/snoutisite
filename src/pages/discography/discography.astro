@@ -1,12 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
-import DiscographyCard from "../components/DiscographyCard.astro";
+import DiscographyCard from "../../components/DiscographyCard.astro";
 import '@styles/components/cards.scss'
 import '@styles/pages/discography.scss'
 
 
-import {getDiscography} from "../scripts/getDiscography";
+import {getDiscography} from "../../scripts/getDiscography";
 const discographyImages = await getDiscography();
 ---
 
