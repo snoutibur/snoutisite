@@ -8,10 +8,10 @@ footer {
   margin-top: 1.33rem;
   margin-bottom: var(--navbar-height-small);
 
-  text-align: center;
-
   border-top: solid var(--accent) .2rem;
   background-color: var(--bg-secondary);
+
+  text-align: center;
 
   img {
     aspect-ratio: 1 / 1;
@@ -26,8 +26,12 @@ footer {
 
   @media only screen and (min-width: 600px) {
     flex-direction: row;
-    margin-left: var(--navbar-width-large);
     margin-bottom: 0;
+
+    margin-left: 0;
+    padding-left: calc(2 * var(--navbar-width-large));
+    padding-right: var(--navbar-width-large);
+    width: 100vw;
   }
 }
 
