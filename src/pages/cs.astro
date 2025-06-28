@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "@styles/components/cards.scss";
+
 import {Image} from "astro:assets";
 import {Masonry} from "astro-masonry";---
 
@@ -26,14 +27,51 @@ import {Masonry} from "astro-masonry";---
             <article class="split-card">
                 <h1>dotfiles</h1>
                 <p>
-                    My personal cross platform (macOS & Linux) system configuration files. <i>Ricing!</i>
+                    Ricing! My personal cross platform (macOS & Linux) system configuration files.<br>
+                    These aren't public yet- I intend to make them public, but I have to clean up private information first.
                 </p>
             </article>
         </Masonry>
 
         <hr>
 
-        <h1>Profiles & Orgs</h1>
-        <p>TBA</p>
+        <h1>Profiles</h1>
+        <Masonry
+                breakpointCols={{
+                    default: 3,
+                    1200: 2,
+                    621: 1,
+                }}
+        >
+            <a href="https://github.com/snoutibur" target="_blank">
+                <article class="split-card">
+                    <img src="https://avatars.githubusercontent.com/u/157987813" alt="Main profile">
+                    <h1>snoutibur</h1>
+                    <p>
+                        My main GitHub account
+                    </p>
+                </article>
+            </a>
+
+            <a href="https://github.com/snoutibur" target="_blank">
+                <article class="split-card">
+                    <img src="https://avatars.githubusercontent.com/u/215105552?s=800" alt="Dog otter profile">
+                    <h1>snoutiscratch</h1>
+                    <p>
+                        Project scrapbook.
+                    </p>
+                </article>
+            </a>
+
+            <a href="https://github.com/snoutibur" target="_blank">
+                <article class="split-card">
+                    <img src="https://avatars.githubusercontent.com/u/215185128?s=800" alt="CS is BS Profile">
+                    <h1>schoolzstuffs</h1>
+                    <p>
+                        Primarily coursework and stuff made for classes in school.
+                    </p>
+                </article>
+            </a>
+        </Masonry>
     </main>
 </BaseLayout>
