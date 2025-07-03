@@ -17,21 +17,47 @@ import {Masonry} from "astro-masonry";---
 
     <main>
         <h1>Repos</h1>
-        <Masonry
-                breakpointCols={{
-                    default: 3,
-                    1200: 2,
-                    621: 1,
-                }}
-        >
-            <article class="split-card">
-                <h1>dotfiles</h1>
-                <p>
-                    Ricing! My personal cross platform (macOS & Linux) system configuration files.<br>
-                    These aren't public yet- I intend to make them public, but I have to clean up private information first.
-                </p>
-            </article>
-        </Masonry>
+        <p>Projects I'm currently maintaining or intend on returning to soon.</p>
+
+        <section>
+            <h2>Workflow & Configuration</h2>
+            <Masonry
+                    breakpointCols={{
+                        default: 3,
+                        1200: 2,
+                        621: 1,
+                    }}
+            >
+                <article class="split-card">
+                    <h1>dotfiles</h1>
+                    <p>
+                        Ricing! My personal cross platform (macOS & Linux) system configuration files.<br>
+                        These aren't public yet- I intend to make them public, but I have to clean up private information first.
+                    </p>
+                </article>
+            </Masonry>
+        </section>
+
+        <section>
+            <h2>Music</h2>
+            <Masonry>
+                <article class="split-card">
+                    <h1>miDingo</h1>
+                    <p>
+                        A Synthesia / Guitar hero style game for piano progress. <br>
+                        Currently WIP & on hiatus.
+                    </p>
+                </article>
+
+                <article class="split-card">
+                    <h1>Sequential</h1>
+                    <p>
+                        A iPadOS bluetooth MIDI controller inspired by the layouts found on Ableton Push. <br>
+                        Currently in the concept phase. Will enter development when I have access to iOS tooling (notably SwiftUI). Will be open source when development has started.
+                    </p>
+                </article>
+            </Masonry>
+        </section>
 
         <hr>
 
@@ -48,7 +74,7 @@ import {Masonry} from "astro-masonry";---
                     <img src="https://avatars.githubusercontent.com/u/157987813" alt="Main profile">
                     <h1>snoutibur</h1>
                     <p>
-                        My main GitHub account
+                        Main GitHub account.
                     </p>
                 </article>
             </a>
@@ -58,7 +84,7 @@ import {Masonry} from "astro-masonry";---
                     <img src="https://avatars.githubusercontent.com/u/215105552?s=800" alt="Dog otter profile">
                     <h1>snoutiscratch</h1>
                     <p>
-                        Project scrapbook.
+                        Project scrapbook or my GitHub garden. A variety of simple projects that are left as is once completed or I lose interest.
                     </p>
                 </article>
             </a>
@@ -68,7 +94,7 @@ import {Masonry} from "astro-masonry";---
                     <img src="https://avatars.githubusercontent.com/u/215185128?s=800" alt="CS is BS Profile">
                     <h1>schoolzstuffs</h1>
                     <p>
-                        Primarily coursework and stuff made for classes in school.
+                        Coursework; for school and academia.
                     </p>
                 </article>
             </a>
