@@ -1,0 +1,44 @@
+---
+import "@styles/components/cards.scss";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {Masonry} from "astro-masonry";
+---
+
+<BaseLayout>
+    <Fragment slot="head">
+        <title>Miscellaneous</title>
+    </Fragment>
+
+    <header>
+        <h1>3D Printing</h1>
+    </header>
+
+    <main>
+        <p>PS: Links to files need to be added... Sorry! I'm away from home right now and can't work on 3D files.</p>
+
+        <Masonry
+                breakpointCols={{
+                    default: 2,
+                    760: 1,
+                }}
+        >
+            <article class="split-card">
+                <img src="" alt="Push 2 Cover (to be added)">
+                <h1>Ableton Push 2 Cover</h1>
+                <p>
+                    A protective, somewhat decorative cover for Ableton Push 2.<br>
+                    Although it's not designed to withstand impacts, I have brought my Push to places with nothing more than this cover and a laptop bag.
+                </p>
+            </article>
+
+            <article class="split-card">
+                <img src="" alt="AirTag Comparment (to be added)">
+                <h1>ZV-E10 mk.I SmallRig Cage Airtag Holder</h1>
+                <p>
+                    A way to somewhat discretely tag your camera.<br>
+                    This AirTag holder fits over the battery compartment in your SmallRig cage and attaches with a small velcro strap.
+                </p>
+            </article>
+        </Masonry>
+    </main>
+</BaseLayout>
