@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import "@styles/components/cards.scss";
+import {Masonry} from "astro-masonry";
 ---
 <BaseLayout>
     <Fragment slot="head">
@@ -11,10 +13,25 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     </header>
 
     <main>
-        <h1>Miscellaneous landing is under construction.</h1>
-        <p>
-            This is a landing page that directs to more niche topics.<br>
-            Try visiting <a href="ableton">ableton stuffs</a>! This is where you'll find it in the future.
-        </p>
+        <Masonry
+                breakpointCols={{
+                    default: 2,
+                    760: 1,
+                }}
+        >
+            <a href="/misc/ableton">
+                <article class="split-card">
+                    <h1>Ableton</h1>
+                    <p>Themes & Plugins for Ableton Live</p>
+                </article>
+            </a>
+
+            <a href="/misc/3d">
+                <article class="split-card">
+                    <h1>3D Printing</h1>
+                    <p>3D Models & Fusion 360 projects</p>
+                </article>
+            </a>
+        </Masonry>
     </main>
 </BaseLayout>
