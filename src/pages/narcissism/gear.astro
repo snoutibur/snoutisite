@@ -1,5 +1,7 @@
 ---
+import { Masonry } from "astro-masonry";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import "@styles/components/cards.scss";
 ---
 
 <BaseLayout>
@@ -13,21 +15,112 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     </header>
 
     <main>
-        <h1>Computers</h1>
-        <p>
-            TBA: might make this look like neofetch :33
-        </p>
-        <h1>Drawing Gear</h1>
-        <p>
-            TBA
-        </p>
-        <h1>Music Gear</h1>
-        <p>
-            TBA
-        </p>
-        <h1>Photography Gear</h1>
-        <p>
-            TBA
-        </p>
+        <article class="split-card">
+            <h1>Computers</h1>
+
+            <Masonry>
+                <div>
+                    <h2>Mac Studio</h2>
+                </div>
+
+                <div>
+                    <h2>MacBook Pro</h2>
+                </div>
+            </Masonry>
+        </article>
+
+        <Masonry
+                breakpointCols={{
+                    default: 2,
+                    760: 1,
+                }}
+        >
+            <article class="split-card">
+                <h1>Drawing</h1>
+
+                <Masonry>
+                    <div>
+                        <h2>Huion Kamvas 22 Plus</h2>
+                    </div>
+
+                    <div>
+                        <h2>Software</h2>
+                        <ul>
+                            <li>Affinity Designer</li>
+                            <li>Procreate</li>
+                        </ul>
+                    </div>
+                </Masonry>
+            </article>
+
+            <article class="split-card">
+                <h1>Music</h1>
+                <Masonry>
+                    <div>
+                        <h2>Hardware</h2>
+                        <ul>
+                            <li>Komplete Kontrol S61 Mk.II</li>
+                            <li>Ableton Push 2</li>
+                            <li>UA Volt 2</li>
+                            <li>Beyerdynamic DT-990 Pro</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2>Software</h2>
+                        <ul>
+                            <li>Ableton Live 12 Suite</li>
+                            <li>Ableton Note</li>
+                        </ul>
+                    </div>
+                </Masonry>
+            </article>
+
+            <article class="split-card">
+                <h1>Photography</h1>
+                <Masonry>
+                    <div>
+                        <h2>Hardware</h2>
+                        <ul>
+                            <li>Sony ZV-E10 Mk.I</li>
+                            <li>Tamron 18-300mm f/3.5-6.3</li>
+                            <li>Sony PZ 16-50mm f/3.5-5.6 kit lens</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2>Software</h2>
+                        <ul>
+                            <li>Affinity Photo</li>
+                        </ul>
+                    </div>
+                </Masonry>
+            </article>
+
+            <article class="split-card">
+                <h1>3D Printing</h1>
+                <Masonry>
+                    <div>
+                        <h2>Hardware</h2>
+                        <ul>
+                            <li>Bambu Lab A1</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2>Software</h2>
+                        <ul>
+                            <li>Fusion 360</li>
+                            <li>OrcaSlicer</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2>Filaments</h2>
+                        <p>Mainly PETG and PLA</p>
+                    </div>
+                </Masonry>
+            </article>
+        </Masonry>
     </main>
 </BaseLayout>
