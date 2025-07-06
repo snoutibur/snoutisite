@@ -1,6 +1,5 @@
-.split-card {
+.split-card-base {
   display: flex;
-  flex-direction: column;
   height: fit-content;
   margin: 1rem;
 
@@ -28,9 +27,19 @@
 }
 
 a:link, a:visited, a:active {
-  .split-card {
+  .split-card-base {
     color: var(--text-primary);
   }
+}
+
+.split-card-h {
+  @extend .split-card-base;
+  flex-direction: column;
+}
+
+.split-card-v {
+  @extend .split-card-base;
+  flex-direction: row;
 }
 
 .tags {
