@@ -1,0 +1,15 @@
+---
+const {title, image, description, tags} = Astro.props;
+---
+
+<article class="artcard">
+    <img src={image} alt="imported artwork"/>
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <ul class="tags">
+        {tags.map(tag =>
+                <li class="tag">
+                    {tag}
+                </li>)}
+    </ul>
+</article>

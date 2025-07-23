@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import {Masonry} from "astro-masonry";
+import ArtCard from "../../components/ArtCard.astro";
+import artworks from '../../data/art/pfp.json'
 ---
 
 <BaseLayout>
@@ -11,4 +14,24 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         <h1>Profile Pictures</h1>
         <p>Artwork primarily for my online presence.</p>
     </header>
+
+    <main>
+        <Masonry
+                breakpointCols={{
+                    default: 3,
+                    1200: 2,
+                    621: 1,
+                }}
+        >
+
+            {artworks.map(art => (
+                    <ArtCard
+                            title={art.title}
+                            image={art.image}
+                            description={art.description}
+                            tags={art.tags}
+                    />
+            ))}
+        </Masonry>
+    </main>
 </BaseLayout>

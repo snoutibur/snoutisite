@@ -1,0 +1,22 @@
+[
+  {
+    "title": "example",
+    "image": "/assets/artworks/example.png",
+    "description": "testing testing PLEASE WORK.",
+    "tags": ["scrap", "delete"]
+  },
+
+  {
+    "title": "example2",
+    "image": "/assets/artworks/example2.png",
+    "description": "WHY NO WORKY??",
+    "tags": ["scrap", "delete", "ragebait"]
+  },
+
+  {
+    "title": "example3",
+    "image": "/assets/artworks/example3.png",
+    "description": "wait.. IT WORKED??",
+    "tags": ["scrap", "delete", "inspiration"]
+  }
+]
