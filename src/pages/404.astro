@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import "@styles/components/cards.scss";
 ---
 
 <BaseLayout>
@@ -7,8 +8,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <title>404</title>
     </Fragment>
 
-    <main class="centerContentsH">
-        <h1>404 DD:</h1>
-        <h2>Ya borked it.</h2>
+    <main>
+        <section class="split-card-v">
+            <div style="border-right: var(--accent) solid .2em; padding-right: 13%">
+                <h1>404 D:</h1>
+                <h2>You borked it.</h2>
+                <p>
+                    The page you were looking for couldn't be found.<br>
+                </p>
+            </div>
+
+            <div>
+                <h2>Maybe avoid leaving the map next time :3</h2>
+                <a href="/">Go home</a><br>
+            </div>
+        </section>
     </main>
 </BaseLayout>
