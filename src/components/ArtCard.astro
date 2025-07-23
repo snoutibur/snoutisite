@@ -1,15 +1,20 @@
 ---
 const {title, image, description, tags} = Astro.props;
+import "../styles/components/artcard.scss"
 ---
 
 <article class="artcard">
-    <img src={image} alt="imported artwork"/>
-    <h2>{title}</h2>
-    <p>{description}</p>
-    <ul class="tags">
-        {tags.map(tag =>
-                <li class="tag">
-                    {tag}
-                </li>)}
-    </ul>
+    <div>
+        <img src={image} alt="imported artwork"/>
+        <ul class="tags">
+            {tags.map(tag =>
+                    <li class="tag">
+                        {tag}
+                    </li>)}
+        </ul>
+    </div>
+    <div>
+        <h2>{title}</h2>
+        <p>{description}</p>
+    </div>
 </article>

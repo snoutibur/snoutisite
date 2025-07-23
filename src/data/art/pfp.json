@@ -18,5 +18,26 @@
     "image": "/assets/artworks/example3.png",
     "description": "wait.. IT WORKED??",
     "tags": ["scrap", "delete", "inspiration"]
+  },
+
+  {
+    "title": "rawr",
+    "image": "",
+    "description": "now it's just spam",
+    "tags": ["scrap", "delete", "spamcore"]
+  },
+
+  {
+    "title": "rawr",
+    "image": "",
+    "description": "now it's just spam",
+    "tags": ["scrap", "delete", "spamcore"]
+  },
+
+  {
+    "title": "rawr",
+    "image": "",
+    "description": "now it's just spam",
+    "tags": ["scrap", "delete", "spamcore"]
   }
 ]
