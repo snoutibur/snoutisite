@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Masonry } from 'astro-masonry';
+import "@styles/components/cards.scss";
+---
+
+<BaseLayout>
+    <Fragment slot="head">
+        <title>Artworks landing</title>
+    </Fragment>
+
+    <header>
+        <h1>Artworks</h1>
+    </header>
+
+    <main>
+        <section id="placeholder">
+            <h1>emptiness :o</h1>
+            <p>
+                I'll fill the categories eventually when I get around to it... Aka deciding to figure out loading from json and finding a CDN.
+            </p>
+        </section>
+
+        <Masonry>
+            <a href="pfp.astro">
+                <article class="split-card-h">
+                    <h1>Profile Pictures</h1>
+                </article>
+            </a>
+
+            <a href="channel-art.astro">
+                <article class="split-card-h">
+                    <h1>Channel Artwork</h1>
+                </article>
+            </a>
+
+            <a href="shitpost.astro">
+                <article class="split-card-h">
+                    <h1>MEMEZ</h1>
+                </article>
+            </a>
+
+            <a href="wallbackings.astro">
+                <article class="split-card-h">
+                    <h1>Wallpapers & Backings</h1>
+                </article>
+            </a>
+
+            <a href="stained-glass.astro">
+                <article class="split-card-h">
+                    <h1>Stained Glass</h1>
+                </article>
+            </a>
+        </Masonry>
+    </main>
+</BaseLayout>
