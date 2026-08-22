@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
-import "@styles/pages/landing.scss"
+import "@styles/pages/index.scss"
 import "@styles/components/cards.scss";
 import { Image } from "astro:assets";
 import { Masonry } from 'astro-masonry';
@@ -11,61 +11,70 @@ import { Masonry } from 'astro-masonry';
         <title>snoutibur home</title>
     </Fragment>
 
-    <main>
-        <section id="title">
-            <Image
-                    id="hero"
-                    src={import('../assets/img/landing.webp')}
-                    alt="Landing hero image"
-                    sizes="(max-width: 2048px) 100vw, 300px"
-                    quality={80}
-                    format="webp"
-            />
+    <section id="title">
+        <Image
+                id="hero"
+                src={import('../assets/img/landing.webp')}
+                alt="Landing hero image"
+                sizes="(max-width: 2048px) 100vw, 300px"
+                quality={80}
+                format="webp"
+        />
 
-            <div id="title-content">
-                <div>
-                    <h1>snoutibur</h1>
-                    <ul>
-                        <li>Artist</li>
-                        <li>Musician</li>
-                        <li>Programmer</li>
-                    </ul>
-                    <p>he / him</p>
-                </div>
-
-                <hr>
-
-                <div>
-                    <h2>Haii!</h2>
-                    <p>
-                        I'm an first-year university student majoring in Computer Science. Outside of programming, I love composing and producing music, and digital art.<br>
-                        I believe in showing my work, even if it sucks. Scroll down a bit to see some of it! :D
-                    </p>
-                </div>
-
-                <article id="socials">
-                    <ul class="socials-list">
-                        <li>
-                            <a href="https://www.discord.com/users/490265170277662720" target="_blank">
-                                <img src="/socials/Discord.svg" alt="Discord Logo" class="socials">
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://github.com/snoutibur" target="_blank">
-                                <img src="/socials/GitHub.svg" alt="GitHub Logo" class="socials">
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://www.youtube.com/@snoutibur" target="_blank"><img src="/socials/YouTube.svg" alt="YouTube Logo" class="socials"></a>
-                        </li>
-                    </ul>
-                </article>
+        <div id="title-content">
+            <div>
+                <h1>snoutibur</h1>
+                <ul>
+                    <li>Artist</li>
+                    <li>Musician</li>
+                    <li>Programmer</li>
+                </ul>
             </div>
+
+            <hr>
+
+            <div>
+                <h2>Haii!</h2>
+                <p>
+                    I'm a university student pursuing a Bachelor of Science in Computer Science.
+                    <br>Outside of CS, I write & produce music, make digital art, and 3D model.
+                </p>
+            </div>
+
+            <article id="socials">
+                <ul class="socials-list">
+                    <li>
+                        <a href="https://github.com/snoutibur" target="_blank">
+                            <img src="/socials/GitHub.svg" alt="GitHub" class="socials">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://codeberg.org/snoutibur" target="_blank">
+                            <img src="/socials/codeberg-logo_icon_white.svg" alt="Codeberg" class="socials" loading="lazy">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.discord.com/users/490265170277662720" target="_blank">
+                            <img src="/socials/Discord.svg" alt="Discord" class="socials">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.youtube.com/@snoutibur" target="_blank"><img src="/socials/YouTube.svg" alt="YouTube" class="socials"></a>
+                    </li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <main>
+        <section id="featured">
+            <h1>Featured</h1>
         </section>
 
-        <section id="featured">
+        <section id="content-categories">
             <Masonry
                     breakpointCols={{
                         default: 4,
@@ -73,18 +82,11 @@ import { Masonry } from 'astro-masonry';
                         621: 1,
                     }}
             >
-                <a href="/artworks/landing">
+                <a href="/cs">
                     <article class="split-card-h">
-                        <Image
-                                src={import('../assets/img/ArtThumbnail.png')}
-                                alt="final sketch overlay"
-                                sizes="(max-width: 2048px) 100vw, 300px"
-                                quality={80}
-                                format="webp"
-                        />
-                        <h1>Artworks</h1>
+                        <h1>CS & Programming</h1>
                         <p>
-                            Visual artworks such profile pictures, illustrations and stained glass (+ templates!).
+                            Larger programming projects that made the cut to be featured
                         </p>
                     </article>
                 </a>
@@ -99,11 +101,18 @@ import { Masonry } from 'astro-masonry';
                     </article>
                 </a>
 
-                <a href="/cs">
+                <a href="/artworks/landing">
                     <article class="split-card-h">
-                        <h1>CS & Programming</h1>
+                        <Image
+                                src={import('../assets/img/ArtThumbnail.png')}
+                                alt="final sketch overlay"
+                                sizes="(max-width: 2048px) 100vw, 300px"
+                                quality={80}
+                                format="webp"`
+                        />
+                        <h1>Artworks</h1>
                         <p>
-                            Active (larger) projects & GitHub Profiles.
+                            Visual artworks (Digital art & 3D art bunched together)
                         </p>
                     </article>
                 </a>
@@ -112,8 +121,7 @@ import { Masonry } from 'astro-masonry';
                     <article class="split-card-h">
                         <h1>Misc Stuff</h1>
                         <p>
-                            Items that don't fit in any other category, such as configuration files, 3D printable items and max4live devices.
-                            <i>Currently, it's just Ableton stuff... I'll add the rest eventually :33.</i>
+                            One off items that don't fit in other categories
                         </p>
                     </article>
                 </a>
