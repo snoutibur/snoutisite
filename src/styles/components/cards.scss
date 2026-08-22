@@ -37,6 +37,11 @@ a:link, a:visited, a:active {
   flex-direction: column;
 }
 
+.split-card-h-small {
+  @extend .split-card-h;
+  max-width: 26em;
+}
+
 .split-card-v {
   @extend .split-card-base;
   flex-direction: row;

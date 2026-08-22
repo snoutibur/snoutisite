@@ -3,7 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import "@styles/components/cards.scss";
 
 import {Image} from "astro:assets";
-import {Masonry} from "astro-masonry";---
+import {Masonry} from "astro-masonry";
+---
 
 <BaseLayout>
     <Fragment slot="head">
@@ -11,96 +12,98 @@ import {Masonry} from "astro-masonry";---
     </Fragment>
 
     <header>
-        <h1>CS is BS!</h1>
-        <p>CS & Programming related items <i>that didn't fail..</i></p>
+        <h1>Computer Science</h1>
     </header>
 
     <main>
-        <h1>Repos</h1>
-        <p>Projects I'm currently maintaining or intend on returning to soon.</p>
+        <div class="readable-width">
+            <section id="projects">
+                <h1>Projects</h1>
+                <p>Major programming projects. Clicking on the card will direct offsite to the project's home (its source repo or showcase website).</p>
+                <Masonry>
+                    <a href="https://midingo.snoutibur.com/" target="_blank">
+                        <article class="split-card-h">
+                            <h1>Midingo</h1>
+                            <p>
+                                A piano trainer designed like a rhythm game featuring real time scoring. Supports MIDI files as charts and MIDI controllers for inputs.
+                            </p>
+                            <ul>
+                                <li>Game built using Godot, C#, DryWetMIDI, and SQLite</li>
+                                <li>Website built using Astro + Sass</li>
+                                <li>Devlog built using Astro collections</li>
+                                <li>Documentation site built using Starlight</li>
+                            </ul>
+                            <small>2025</small>
+                        </article>
+                    </a>
 
-        <section>
-            <h2>Workflow & Configuration</h2>
+                    <a href="https://github.com/snoutibur/snoutisite" target="_blank">
+                        <article class="split-card-h">
+                            <h1>Personal (General) Portfolio</h1>
+                            <p>
+                                The website you're looking at right now!<br>
+                                A showcase of my various creative & technical projects built using Astro and SCSS + CSS.
+                            </p>
+                            <small>2025</small>
+                        </article>
+                    </a>
+                </Masonry>
+            </section>
+
+            <hr>
+
+            <h1>Profiles</h1>
+            <p>These are my personal git forge profiles. Some projects of mine are under their own organization.</p>
             <Masonry
                     breakpointCols={{
-                        default: 3,
-                        1200: 2,
+                        default: 6,
+                        1200: 4,
                         621: 1,
                     }}
             >
-                <article class="split-card-h">
-                    <h1>dotfiles</h1>
-                    <p>
-                        Ricing! My personal cross platform (macOS & Linux) system configuration files.<br>
-                        These aren't public yet- I intend to make them public, but I have to clean up private information first.
-                    </p>
-                </article>
-            </Masonry>
-        </section>
-
-        <section>
-            <h2>Music</h2>
-            <Masonry>
-                <a href="https://github.com/snoutibur/midingo" target="_blank">
-                    <article class="split-card-h">
-                        <h1>miDingo</h1>
+                <a href="https://github.com/snoutibur" target="_blank">
+                    <article class="split-card-h-small">
+                        <img src="https://avatars.githubusercontent.com/u/157987813" alt="Main profile">
+                        <h1>snoutibur (GitHub)</h1>
                         <p>
-                            A Synthesia / Guitar hero style game for piano practice. The objective is to hit notes falling onto a key at the right time.<br>
-                            Currently WIP & on hiatus.
+                            Main GitHub account.
                         </p>
                     </article>
                 </a>
-                <a href="https://github.com/snoutibur/sequential" target="_blank">
-                    <article class="split-card-h">
-                        <h1>Sequential</h1>
+
+                <a href="https://codeberg.org/snoutibur" target="_blank">
+                    <article class="split-card-h-small">
+                        <img src="https://avatars.githubusercontent.com/u/157987813" alt="Main profile">
+                        <h1>snoutibur (Codeberg)</h1>
                         <p>
-                            A iPadOS bluetooth MIDI controller inspired by the layouts found on Ableton Push. <br>
-                            Currently in the concept phase. Will enter development when I have access to iOS tooling (notably SwiftUI). Will be open source when development has started.
+                            Main Codeberg account.
+                        </p>
+                    </article>
+                </a>
+
+                <a href="https://github.com/snoutiscratch" target="_blank">
+                    <article class="split-card-h-small">
+                        <img src="https://avatars.githubusercontent.com/u/215105552?s=800" alt="Dog otter profile">
+                        <h1>snoutiscratch</h1>
+                        <p>
+                            Project scrapbook & GitHub garden.<br>
+                            These projects are most likely abandoned after completion or interest is lost.
+                        </p>
+                    </article>
+                </a>
+
+                <a href="https://github.com/snoutibur-academic" target="_blank">
+                    <article class="split-card-h-small">
+                        <img src="https://avatars.githubusercontent.com/u/215185128?s=800" alt="CS is BS Profile">
+                        <h1>schoolzstuffs</h1>
+                        <p>
+                            Coursework; for school and academia.<br>
+                            Most code here is private as it's against policy for some classes to publish coursework
+                            publicly.
                         </p>
                     </article>
                 </a>
             </Masonry>
-        </section>
-
-        <hr>
-
-        <h1>Profiles</h1>
-        <Masonry
-                breakpointCols={{
-                    default: 3,
-                    1200: 2,
-                    621: 1,
-                }}
-        >
-            <a href="https://github.com/snoutibur" target="_blank">
-                <article class="split-card-h">
-                    <img src="https://avatars.githubusercontent.com/u/157987813" alt="Main profile">
-                    <h1>snoutibur</h1>
-                    <p>
-                        Main GitHub account.
-                    </p>
-                </article>
-            </a>
-
-            <a href="https://github.com/snoutibur" target="_blank">
-                <article class="split-card-h">
-                    <img src="https://avatars.githubusercontent.com/u/215105552?s=800" alt="Dog otter profile">
-                    <h1>snoutiscratch</h1>
-                    <p>
-                        Project scrapbook & GitHub garden. These projects are most likely abandoned after completion or interest is lost.
-                    </p>
-                </article>
-            </a>
-
-            <a href="https://github.com/snoutibur" target="_blank">
-                <article class="split-card-h">
-                    <img src="https://avatars.githubusercontent.com/u/215185128?s=800" alt="CS is BS Profile">
-                    <h1>schoolzstuffs</h1>
-                    <p>
-                        Coursework; for school and academia.
-                    </p>
-                </article>
-            </a>
-        </Masonry>
+        </div>
     </main>
 </BaseLayout>
