@@ -62,6 +62,17 @@ main {
     }
 }
 
+.readable-width {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin: 3em auto 3em auto;
+
+    width: 100%;
+    max-width: 1400px;
+}
+
 h1 {
     font-size: 1.75em;
 }

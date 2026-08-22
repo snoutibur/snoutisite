@@ -18,19 +18,22 @@ const discographyImages = await getDiscography();
     <header>
         <h1>Discography</h1>
         <p>It's music!</p>
-        <small>These links will be clickable when I get the markdown parsing to work and a page layout for it. It'll be soon&trade;!</small>
+        <small>These links will be clickable when I get the markdown parsing to work and a page layout for it. It'll be
+            soon&trade;!</small>
     </header>
 
     <main>
-        <section class="discography-layout">
-            {discographyImages.map((item) => (
-                    <DiscographyCard
-                            title={item.data.title}
-                            cover={item.coverImage}
-                            tags={item.data.tags}
-                            link={`/discography/${item.slug}`}
-                    />
-            ))}
-        </section>
+        <div class="readable-width">
+            <section class="discography-layout">
+                {discographyImages.map((item) => (
+                        <DiscographyCard
+                                title={item.data.title}
+                                cover={item.coverImage}
+                                tags={item.data.tags}
+                                link={`/discography/${item.slug}`}
+                        />
+                ))}
+            </section>
+        </div>
     </main>
 </BaseLayout>
