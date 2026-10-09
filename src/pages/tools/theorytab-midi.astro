@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "@styles/pages/tools/theorytab-midi.scss";
+---
+
+<BaseLayout>
+    <Fragment slot="head">
+        <title>Theorytab to MIDI</title>
+    </Fragment>
+
+    <header>
+        <h1>TheoryTab to MIDI</h1>
+    </header>
+
+    <main>
+        <textarea
+                id="theorytab-input"
+                placeholder="Paste the contents of a TheoryTab here!"
+                rows="24"
+        ></textarea>
+
+        <button id="convert-button" type="button">
+            Convert to MIDI
+        </button>
+    </main>
+</BaseLayout>
+
+<script>
+    import {convertTheoryTab} from "@scripts/tools/theorytab-midi/converter.ts";
+
+    const input = document.querySelector<HTMLTextAreaElement>(
+        "#theorytab-input"
+    );
+
+    const button = document.querySelector<HTMLButtonElement>(
+        "#convert-button"
+    );
+
+    button?.addEventListener("click", () => {
+        if (!input) return;
+
+        try {
+            convertTheoryTab(input.value);
+        } catch (error) {
+            console.error("Failed to parse TheoryTab:", error);
+        }
+    });
+</script>
