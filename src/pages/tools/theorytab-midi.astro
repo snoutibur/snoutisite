@@ -13,15 +13,32 @@ import "@styles/pages/tools/theorytab-midi.scss";
     </header>
 
     <main>
-        <textarea
-                id="theorytab-input"
-                placeholder="Paste the contents of a TheoryTab here!"
-                rows="24"
-        ></textarea>
+        <section class="readable-width">
+            <textarea
+                    id="theorytab-input"
+                    placeholder="Paste the contents of a TheoryTab here!"
+                    rows="24"
+            ></textarea>
 
-        <button id="convert-button" type="button">
-            Convert to MIDI
-        </button>
+            <button id="convert-button" type="button">
+                Convert to MIDI
+            </button>
+
+            <h2>Usage</h2>
+            <p>
+                A simple utility to convert <a href="https://www.hooktheory.com/theorytab" target="_blank">HookTheory's
+                TheoryTabs</a> to MIDI files. <br>
+                On any TheoryTab, there will be a copy button. Copy either the melody, chords, or all, and paste it in
+                the textbox above. Hit convert and a MIDI file will be automatically downloaded.
+            </p>
+
+            <h2>Known Limitations</h2>
+            <p>The converter currently has the following features missing & unplanned</p>
+            <ul>
+                <li>Only support Major and Minor scales</li>
+                <li>Only 4/4 time supported at this moment</li>
+            </ul>
+        </section>
     </main>
 </BaseLayout>
 
