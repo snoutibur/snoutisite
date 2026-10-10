@@ -3,7 +3,16 @@
  */
 export interface TheoryTab {
     notes: TabNote[];
+    chords: TabChord[];
     keys: TabKey[];
+}
+
+/**
+ * A TheoryTab converted to regular MIDI
+ */
+export interface ConvertedTheoryTab {
+    melody: MidiNote[];
+    chords: MidiNote[];
 }
 
 /**
@@ -14,6 +23,18 @@ export interface TabNote {
     duration: number;
     sd: string;
     octave: number;
+    isRest: boolean;
+}
+
+/**
+ * A chord of a TheoryTab
+ */
+export interface TabChord {
+    beat: number;
+    duration: number;
+    root: number;
+    type: number;
+    inversion: number;
     isRest: boolean;
 }
 
