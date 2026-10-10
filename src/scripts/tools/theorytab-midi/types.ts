@@ -36,6 +36,9 @@ export interface TabChord {
     type: number;
     inversion: number;
     isRest: boolean;
+    suspensions: number[];
+    omits: number[];
+    adds: number[];
 }
 
 /**
