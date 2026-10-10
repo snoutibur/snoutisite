@@ -1,5 +1,5 @@
-import { scaleDegreeToMidi, noteToMidiID } from "./pitches";
 import type { TheoryTab, MidiNote } from "./types";
+import { Key } from "./key";
 
 /**
  * Converts a TheoryTab to an array of a custom MIDI Note object
@@ -9,8 +9,12 @@ import type { TheoryTab, MidiNote } from "./types";
 export function convertTheoryTab(input: string): MidiNote[] {
     const data = JSON.parse(input) as TheoryTab;
 
-    const key = data.keys[0];
-    const root = noteToMidiID(key.tonic);
+    const tabKey = data.keys[0];
+
+    if (!tabKey)
+        throw new Error("TheoryTab must contain a key");
+
+    const key = Key.fromTonic(tabKey.tonic, tabKey.scale);
 
     const convertedNotes: MidiNote[] = [];
 
@@ -18,11 +22,7 @@ export function convertTheoryTab(input: string): MidiNote[] {
         if (note.isRest)
             continue;
 
-        const pitch = scaleDegreeToMidi(
-            note.sd,
-            root,
-            note.octave
-        );
+        const pitch = key.toMidi(note.sd, note.octave);
 
         convertedNotes.push({
             pitch: pitch,
