@@ -26,7 +26,11 @@ import "@styles/pages/tools/theorytab-midi.scss";
 </BaseLayout>
 
 <script>
-    import {convertTheoryTab} from "@scripts/tools/theorytab-midi/converter.ts";
+    import {convertTheoryTab} from
+            "@scripts/tools/theorytab-midi/converter";
+
+    import {generateMidi} from
+            "@scripts/tools/theorytab-midi/midi";
 
     const input = document.querySelector<HTMLTextAreaElement>(
         "#theorytab-input"
@@ -40,9 +44,23 @@ import "@styles/pages/tools/theorytab-midi.scss";
         if (!input) return;
 
         try {
-            convertTheoryTab(input.value);
+            const notes = convertTheoryTab(input.value);
+            const midiBytes = generateMidi(notes);
+            const blob = new Blob(
+                [new Uint8Array(midiBytes)],
+                {type: "audio/midi"}
+            );
+
+            const url = URL.createObjectURL(blob);
+
+            const anchor = document.createElement("a");
+            anchor.href = url;
+            anchor.download = "theorytab.mid";
+            anchor.click();
+
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
         } catch (error) {
-            console.error("Failed to parse TheoryTab:", error);
+            console.error("MIDI conversion failed:", error);
         }
     });
 </script>
