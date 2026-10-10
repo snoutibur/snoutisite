@@ -12,7 +12,7 @@ export interface TheoryTab {
 export interface TabNote {
     beat: number;
     duration: number;
-    scaleDegree: string;
+    sd: string;
     octave: number;
     isRest: boolean;
 }

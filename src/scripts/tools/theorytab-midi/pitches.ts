@@ -28,8 +28,8 @@ const noteOffsets: Record<string, number> = {
 
 /**
  * Converts a note name into a MIDI note number
- * @param note - Musical name of the root note, i.e. "C" or "Eb"
- * @param octave - Absolute octave number, defaults to 4
+ * @param note Musical name of the root note, i.e. "C" or "Eb"
+ * @param octave Absolute octave number, defaults to 4
  * @returns The MIDI note number of the specified pitch
  */
 export function noteToMidiID(
@@ -46,22 +46,45 @@ export function noteToMidiID(
 }
 
 /**
- * Converts a specified scale degree to its MIDI note ID
- * @param degree scale degree to convert to MIDI
- * @param root root note, represented as a MIDI ID
- * @param octave which octave to place this scale degree on
- * @returns calculated MIDI note number
+ * Converts a scale degree to its MIDI note number
+ * @param degree scale degree (1–7), optionally prefixed with # or b for chromatic notes
+ * @param root root note represented as a MIDI note number
+ * @param octave which octave to place this note on
+ * @returns MIDI note ID number
  */
 export function scaleDegreeToMidi(
-    degree: number,
+    degree: string,
     root: number,
     octave: number = 0
 ): number {
-    if (degree < 1 || degree > 7) {
-        throw new RangeError("Scale degree must be between 1 and 7");
+    let accidental = 0;
+
+    // Determine whether the scale degree has an accidental
+    if (degree.startsWith("#")) {
+        accidental = 1;
+        degree = degree.slice(1);
+    } else if (degree.startsWith("b")) {
+        accidental = -1;
+        degree = degree.slice(1);
     }
 
-    const interval = majorScale[degree - 1];
+    const degreeNumber = Number(degree);
 
-    return root + interval + (octave * 12);
+    if (
+        !Number.isInteger(degreeNumber) ||
+        degreeNumber < 1 ||
+        degreeNumber > 7
+    ) {
+        throw new RangeError(`Invalid scale degree: ${degree}`);
+    }
+
+    const interval = majorScale[degreeNumber - 1];
+
+    const pitch = root + interval + accidental + (octave * 12);
+
+    if (pitch < 0 || pitch > 127) {
+        throw new RangeError(`MIDI pitch out of range: ${pitch}`);
+    }
+
+    return pitch;
 }

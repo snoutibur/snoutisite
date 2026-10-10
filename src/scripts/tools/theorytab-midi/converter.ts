@@ -18,10 +18,8 @@ export function convertTheoryTab(input: string): MidiNote[] {
         if (note.isRest)
             continue;
 
-        const degree = Number(note.scaleDegree);
-
         const pitch = scaleDegreeToMidi(
-            degree,
+            note.sd,
             root,
             note.octave
         );
