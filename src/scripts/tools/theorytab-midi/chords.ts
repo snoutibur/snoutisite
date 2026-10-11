@@ -2,8 +2,8 @@ import {Key} from "./key";
 import type {TabChord} from "./types";
 
 /**
- * Chord families represented as diatonic scale degrees from the chord root note
- * @remarks chord qualities, ie major / minor, are provided by the key
+ * Chord families represented by root-relative diatonic intervals
+ * @remark The key determines the qualities of these intervals
  */
 const chordFamilies: Record<number, readonly number[]> = {
     5: [1, 3, 5], // basic triad
@@ -14,7 +14,10 @@ const chordFamilies: Record<number, readonly number[]> = {
 };
 
 /**
- * Represents a musical chord within a particular key
+ * Represents the harmonic identity of a chord
+ * @remark This class is only responsible for storing chord data, validating the chord, and calculating its tones and bass note
+ * @remark This class does not decide octave placement, performance voicing, bass register, or voice leading,
+ * that is the responsibility of `ChordProgression`
  */
 export class Chord {
     readonly key: Key;
@@ -23,98 +26,115 @@ export class Chord {
     constructor(key: Key, data: TabChord) {
         this.key = key;
         this.data = data;
+
+        if (data.isRest)
+            throw new Error(
+                "Rests cannot be represented as a Chord"
+            );
+
+        if (!Number.isInteger(data.root) ||
+            data.root < 1 ||
+            data.root > 7) {
+            throw new Error(
+                `Invalid chord root note0: ${data.root}`
+            );
+        }
+
+        const family = chordFamilies[data.type];
+        if (!family)
+            throw new Error(`Unsupported chord family: ${data.type}`);
+
+        if (!Number.isInteger(data.inversion) ||
+            data.inversion < 0 ||
+            data.inversion >= family.length) {
+            throw new Error(
+                `Invalid chord inversion: ${data.inversion}`
+            );
+        }
     }
 
     /**
-     * Constructs the chord's intervals relative to its root
+     * Returns the chord's root-relative diatonic intervals
      */
-    private getIntervals(): number[] {
+    public getIntervals(): number[] {
         const family = chordFamilies[this.data.type];
-        if (!family)
-            throw new Error(`Unsupported chord family: ${this.data.type}`
-            );
-
-        // copy of the intervals, later operations will modify this array
         let intervals = [...family];
 
-        // Apply suspensions, replace the third
+        // Suspensions replace the third
         if (this.data.suspensions.length > 0) {
             intervals = intervals.filter(i => i !== 3);
             intervals.push(...this.data.suspensions);
         }
 
-        // Add chords: add their added note
+        // Add chord notes explicitly described by the tab (adds)
         intervals.push(...this.data.adds);
 
-        // Remove omitted chord notes
+        // Removed chord notes explicitly described by the tab (omits)
         intervals = intervals.filter(
             i => !this.data.omits.includes(i)
         );
 
-        // Remove duplicates and restore ascending order
-        return [...new Set(intervals)].sort((a, b) => a - b);
+        return [...new Set(intervals)]
+            .sort((a, b) => a - b); // Sorted for the sake of readability & guaranteed order
     }
 
     /**
-     * Converts a root-relative diatonic interval into a MIDI pitch
+     * Resolves a root-relative interval to a reference MIDI pitch using the chord's key
      */
-    private intervalToMidi(
-        interval: number,
-        key: Key
-    ): number {
-        const degree = this.data.root + interval - 1;
+    private intervalToMidi(interval: number): number {
+        // Gets the scale degree relative to the key's tonic note
+        const degree = this.data.root + interval - 1; // -1 to avoid root being counted twice
+        const normalizedDegree = ((degree - 1) % 7 + 7) % 7 + 1; // then wrap the degree in range 1-7
 
-        // Wrap scale degrees above 7 to something accepted by key.toMidi
-        const normalizedDegree = ((degree - 1) % 7) + 1;
+        const octaveOffset = Math.floor((degree - 1) / 7); // # of times the degree went over the diatonic octave
 
-        // # of 7 scale degree cycles the interval crosses
-        const octaveOffset = Math.floor((degree - 1) / 7);
-
-        return key.toMidi(
+        return this.key.toMidi(
             String(normalizedDegree),
             octaveOffset
         );
     }
 
     /**
-     * Applies a chord inversion by raising the lowest notes by one octave
+     * Converts chord intervals to actual MIDI note numbers
+     * @remarks Will not apply omissions, explicit adds, doubles, inversions or voice leading
+     * @returns Array of MIDI note numbers that make up the chord
      */
-    private applyInversion(pitches: number[]): number[] {
-        const inversion = this.data.inversion;
-
-        if (inversion < 0 || inversion >= pitches.length)
-            throw new Error(
-                `Invalid chord inversion: ${inversion}`
-            );
-
-        const result = [...pitches];
-
-        // raise lowest notes
-        for (let i = 0; i < inversion; i++) {
-            const pitch = result.shift()!;
-            result.push(pitch + 12);
-        }
-
-        return result;
+    public getChordTones(): number[] {
+        return this.getIntervals().map(
+            interval => this.intervalToMidi(interval)
+        );
     }
 
     /**
-     * Calculates the MIDI pitches of this chord
-     * @returns An array containing the chord's MIDI note numbers
+     * Gets which chord tone should be in the bass note based on the chord's inversion
      */
-    public getPitches(): number[] {
-        if (this.data.isRest)
-            return [];
+    private getBassInterval(): number {
+        const family = chordFamilies[this.data.type];
+        let interval = family[this.data.inversion];
 
-        const intervals = this.getIntervals();
+        // The suspended note replaces the third
+        if (interval === 3 && this.data.suspensions.length > 0) {
+            if (this.data.suspensions.length !== 1)
+                throw new Error("Ambiguous bass: multiple suspensions");
 
-        const key = this.key;
+            interval = this.data.suspensions[0];
+        }
 
-        // converts intervals to pitches
-        const pitches = intervals.map(
-            interval => this.intervalToMidi(interval, key)
+        if (!this.getIntervals().includes(interval))
+            throw new Error(`Inversion selects omitted tone: ${interval}`);
+
+        return interval;
+    }
+
+    /**
+     * Gets the note name of the bass, ignores the octave.
+     * The note name is represented as a number, 0-11 where 0 is C and 11 is B
+     */
+    public getBassPitchClass(): number {
+        const pitch = this.intervalToMidi(
+            this.getBassInterval()
         );
 
-        return this.applyInversion(pitches);
+        return ((pitch % 12) + 12) % 12; // octave stripped
     }
 }
