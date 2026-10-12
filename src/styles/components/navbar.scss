@@ -9,13 +9,19 @@
 
     background-color: var(--bg-primary);
     transition: width 83ms ease;
-    overflow: scroll;
 
     border: .15rem solid var(--accent);
     border-radius: var(--border-radius);
     margin: .5rem;
+
+    overflow-y: hidden;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
+// Navbar list
 .navbar-nav {
     display: flex;
     align-items: center;
