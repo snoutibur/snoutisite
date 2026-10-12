@@ -1,18 +1,24 @@
+// Screen sizes
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1280px;
+
 :root {
-    // Text //
-    font-family: 'Courier New', Courier, monospace;
-    --text-primary: #ffffff;
-    --text-secondary: #aeb1dc;
+  // Text //
+  font-family: 'Courier New', Courier, monospace;
+  --text-primary: #ffffff;
+  --text-secondary: #caacfc;
 
-    // Color palette //
-    --body-bg: #1e1926;
-    --bg-primary: #3b0e4d;
-    --bg-secondary: #11021e;
+  // Color palette //
+  --body-bg: #1e1926;
+  --bg-primary: #3b0e4d;
+  --bg-secondary: #11021e;
 
-    --accent: #6649b8;
-    --accent2: #49b87d;
+  --accent: #6649b8;
+  --accent2: #49b87d;
 
-    // Misc
-    --transition-speed: 200ms;
-    --border-radius: .5em;
+  // Global design //
+  --transition-speed: 200ms;
+  --border-radius: .5em;
 }
