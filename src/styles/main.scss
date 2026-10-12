@@ -78,6 +78,13 @@ h1 {
     font-size: 1.75em;
 }
 
+textarea {
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    font-family: monospace;
+    padding: 1em;
+}
+
 .button {
     text-align: center;
     background-color: var(--bg-primary);

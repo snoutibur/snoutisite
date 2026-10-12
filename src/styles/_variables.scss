@@ -15,10 +15,13 @@ $breakpoint-wide: 1280px;
   --bg-primary: #3b0e4d;
   --bg-secondary: #11021e;
 
+  --island-bg: rgb(15 2 44 / 0.45);
+
   --accent: #6649b8;
   --accent2: #49b87d;
 
   // Global design //
   --transition-speed: 200ms;
+  --border-size-slim: 2px;
   --border-radius: .5em;
 }

@@ -13,32 +13,27 @@ import "@styles/pages/tools/theorytab-midi.scss";
     </header>
 
     <main>
-        <section class="readable-width">
-            <textarea
-                    id="theorytab-input"
-                    placeholder="Paste the contents of a TheoryTab here!"
-                    rows="24"
-            ></textarea>
+        <div class="readable-width">
+            <section id="converter">
+                <h1>Convert TheoryTabs to MIDI</h1>
+                <p>
+                    An utility to convert <a href="https://www.hooktheory.com/theorytab" target="_blank">HookTheory's
+                    TheoryTabs</a> to MIDI files. <br>
+                </p>
+                <textarea
+                        id="theorytab-input"
+                        placeholder="Paste a copied TheoryTab here. Supports melodies, chords, or both."
+                        rows="24"
+                ></textarea>
 
-            <button id="convert-button" type="button">
-                Convert to MIDI
-            </button>
-
-            <h2>Usage</h2>
-            <p>
-                A simple utility to convert <a href="https://www.hooktheory.com/theorytab" target="_blank">HookTheory's
-                TheoryTabs</a> to MIDI files. <br>
-                On any TheoryTab, there will be a copy button. Copy either the melody, chords, or all, and paste it in
-                the textbox above. Hit convert and a MIDI file will be automatically downloaded.
-            </p>
-
-            <h2>Known Limitations</h2>
-            <p>The converter currently has the following features missing & unplanned</p>
-            <ul>
-                <li>Only support Major and Minor scales</li>
-                <li>Only 4/4 time supported at this moment</li>
-            </ul>
-        </section>
+                <button id="convert-button" type="button">
+                    Convert to MIDI
+                </button>
+                <small>
+                    All data stays on your device; Conversion is done locally.
+                </small>
+            </section>
+        </div>
     </main>
 </BaseLayout>
 
