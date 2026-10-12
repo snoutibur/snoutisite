@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 :root {
     --navbar-width-large: 5rem;
     --navbar-height-small: 3rem;
@@ -19,6 +21,35 @@
     &::-webkit-scrollbar {
         display: none;
     }
+
+    @media (min-width: $breakpoint-mobile) {
+        top: 0;
+        width: var(--navbar-width-large);
+        height: calc(100vh - 1.25rem);
+
+        &:hover {
+            width: 16rem;
+            box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.5);
+
+            .link-text {
+                display: inline;
+            }
+
+            .logo svg {
+                margin-left: 11rem;
+            }
+
+            .logo-text {
+                left: 0;
+            }
+        }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        bottom: 0;
+        width: calc(100vw - 1.25rem);
+        height: var(--navbar-height-small);
+    }
 }
 
 // Navbar list
@@ -32,6 +63,10 @@
     margin: 0;
 
     list-style: none;
+
+    @media (max-width: $breakpoint-mobile) {
+        flex-direction: row;
+    }
 }
 
 .navbar-item {
@@ -48,61 +83,24 @@
 
     filter: grayscale(100%) opacity(0.7);
     transition: var(--transition-speed);
-}
 
-.nav-link:hover {
-    color: var(--text-secondary);
-    background: var(--bg-secondary);
+    &:hover {
+        color: var(--text-secondary);
+        background: var(--bg-secondary);
+    }
+
+    svg {
+        width: 2rem;
+        min-width: 2rem;
+        margin: 0 1.5rem;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        justify-content: center;
+    }
 }
 
 .link-text {
     display: none;
     margin-left: 1rem;
-}
-
-.nav-link svg {
-    width: 2rem;
-    min-width: 2rem;
-    margin: 0 1.5rem;
-}
-
-@media only screen and (max-width: 600px) {
-    .navbar {
-        bottom: 0;
-        width: calc(100vw - 1.25rem);
-        height: var(--navbar-height-small);
-    }
-
-    .navbar-nav {
-        flex-direction: row;
-    }
-
-    .nav-link {
-        justify-content: center;
-    }
-}
-
-@media only screen and (min-width: 600px) {
-    .navbar {
-        top: 0;
-        width: var(--navbar-width-large);
-        height: calc(100vh - 1.25rem);
-    }
-
-    .navbar:hover {
-        width: 16rem;
-        box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.5);
-    }
-
-    .navbar:hover .link-text {
-        display: inline;
-    }
-
-    .navbar:hover .logo svg {
-        margin-left: 11rem;
-    }
-
-    .navbar:hover .logo-text {
-        left: 0;
-    }
 }
