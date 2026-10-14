@@ -24,7 +24,7 @@ export function convertTheoryTab(input: string): ConvertedTheoryTab {
 
     // Convert melody
     const melody: MidiNote[] = [];
-    for (const note of theoryTab.notes) {
+    for (const note of theoryTab.notes ?? []) {
         if (note.isRest)
             continue;
 
@@ -36,7 +36,7 @@ export function convertTheoryTab(input: string): ConvertedTheoryTab {
     }
 
     // Build the chord progression while preserving its musical identity //
-    const activeChords = theoryTab.chords.filter(
+    const activeChords = (theoryTab.chords ?? []).filter(
         tabChord => !tabChord.isRest
     );
     const progression = new ChordProgression( //
