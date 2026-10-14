@@ -1,11 +1,13 @@
 import type {
     TheoryTab,
     MidiNote,
-    ConvertedTheoryTab
+    ConvertedTheoryTab,
+    VoicingOptions
 } from "./types";
 
-import { Key } from "./key";
-import { Chord } from "./chords";
+import {Key} from "./key";
+import {Chord} from "./chords";
+import {ChordProgression} from "./chord-progression";
 
 /**
  * Converts a TheoryTab to arrays of melody and chord MIDI notes
@@ -13,18 +15,16 @@ import { Chord } from "./chords";
  * @returns converted melody & chord notes
  */
 export function convertTheoryTab(input: string): ConvertedTheoryTab {
-    const data = JSON.parse(input) as TheoryTab;
+    const theoryTab = JSON.parse(input) as TheoryTab;
 
-    const tabKey = data.keys[0];
+    const tabKey = theoryTab.keys[0];
     if (!tabKey)
         throw new Error("TheoryTab must contain a key");
-
     const key = Key.fromTonic(tabKey.tonic, tabKey.scale);
 
     // Convert melody
     const melody: MidiNote[] = [];
-
-    for (const note of data.notes) {
+    for (const note of theoryTab.notes) {
         if (note.isRest)
             continue;
 
@@ -35,20 +35,40 @@ export function convertTheoryTab(input: string): ConvertedTheoryTab {
         });
     }
 
-    // Convert chords
+    // Build the chord progression while preserving its musical identity //
+    const activeChords = theoryTab.chords.filter(
+        tabChord => !tabChord.isRest
+    );
+    const progression = new ChordProgression( //
+        activeChords.map(tabChord => new Chord(key, tabChord))
+    );
+
+    // Set chord voicing appropriately for "smoothness" (least large jumps between notes)
+    const voicingOptions: VoicingOptions = {
+        bassRange: [28, 52],
+        harmonyRange: [48, 72],
+    };
+    const chordVoicings = progression.generateVoicings(voicingOptions);
+
+    // Convert chord voicings to MIDI notes
     const chords: MidiNote[] = [];
+    for (let i = 0; i < activeChords.length; i++) {
+        const currentTabChord = activeChords[i];
+        const currentVoicing = chordVoicings[i];
 
-    for (const tabChord of data.chords) {
-        const chord = new Chord(key, tabChord);
+        // Bass note
+        chords.push({
+            pitch: currentVoicing.bass,
+            beat: currentTabChord.beat,
+            duration: currentTabChord.duration
+        });
 
-        // Construct a chord in the notes array,
-        // represented as individual notes with the same beat and duration
-        const pitches = chord.getPitches();
-        for (const pitch of pitches) {
+        // Harmony notes
+        for (const pitch of currentVoicing.harmony) {
             chords.push({
                 pitch,
-                beat: tabChord.beat,
-                duration: tabChord.duration
+                beat: currentTabChord.beat,
+                duration: currentTabChord.duration
             });
         }
     }
