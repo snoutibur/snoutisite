@@ -22,7 +22,7 @@ import "@styles/pages/tools/theorytab-midi.scss";
                 </p>
                 <textarea
                         id="theorytab-input"
-                        placeholder="Paste a copied TheoryTab here. Supports melodies, chords, or both."
+                        placeholder="Paste a copied TheoryTab here. Must include both melody and chord track (they'll be exported to seperate MIDI tracks)"
                         rows="24"
                 ></textarea>
 
@@ -33,24 +33,55 @@ import "@styles/pages/tools/theorytab-midi.scss";
                     All data stays on your device; Conversion is done locally.
                 </small>
             </section>
+
+            <article>
+                <h2 id="known-limitations">Musical Limitations</h2>
+                <ul>
+                    <li>
+                        This converter only recognizes major & minor scales. All tabs must be in 4/4 time to get the
+                        correct note durations.
+                    </li>
+                    <li>
+                        This converter isn't aware of bass note duplicates in harmony and will not omit bass notes from
+                        the harmony stack of a chord. Unfortunately, from my understanding, TheoryTab JSONs do not
+                        explicitly state whether the bass pitch should be included in the harmony stack. <br>
+                        <small>I'll consider removing notes that are marked as the bass note & is too close to other
+                            harmony notes if I see this limitation to be problematic.</small>
+                    </li>
+                </ul>
+                <h3>Supported Chord Types</h3>
+                <ul>
+                    <li>Diatonic chords in supported keys</li>
+                    <li>Extended chords, up to the 13th in supported keys</li>
+                    <li>Suspended chords</li>
+                    <li>Add chords</li>
+                    <li>Chords with explicitly omitted notes</li>
+                </ul>
+                <p>
+                    If you encounter a type of chord that's not listed, please open a issue on GitHub. Remember to
+                    include the TheoryTab that has it.
+                </p>
+
+                <h2>Found an issue?</h2>
+                <p>
+                    If you end up finding an issue with this converter, please
+                    <a href="https://github.com/snoutibur/snoutisite/issues" target="_blank">open an issue on Github</a>
+                    after verifying that your issue is not something related to the <a href="#known-limitations">known
+                    limitations</a>.<br>
+                    Your issue should include the tab that you're converting if it's relevant, like in the case of a
+                    incorrect output.
+                </p>
+            </article>
         </div>
     </main>
 </BaseLayout>
 
 <script>
-    import {convertTheoryTab} from
-            "@scripts/tools/theorytab-midi/converter";
+    import {convertTheoryTab} from "@scripts/tools/theorytab-midi/converter";
+    import {generateMidi} from "@scripts/tools/theorytab-midi/midi";
 
-    import {generateMidi} from
-            "@scripts/tools/theorytab-midi/midi";
-
-    const input = document.querySelector<HTMLTextAreaElement>(
-        "#theorytab-input"
-    );
-
-    const button = document.querySelector<HTMLButtonElement>(
-        "#convert-button"
-    );
+    const input = document.querySelector<HTMLTextAreaElement>("#theorytab-input");
+    const button = document.querySelector<HTMLButtonElement>("#convert-button");
 
     button?.addEventListener("click", () => {
         if (!input) return;
