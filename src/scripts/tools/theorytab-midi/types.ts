@@ -58,3 +58,39 @@ export interface MidiNote {
     beat: number;
     duration: number;
 }
+
+/**
+ * Represents a chord with specified voicing
+ */
+export interface ChordVoicing {
+    /**
+     * Chord's associated bass note
+     */
+    bass: number;
+
+    /**
+     * Harmony notes of a chord
+     */
+    harmony: number[];
+}
+
+/**
+ * Options for how a chord should be voiced, used by the ChordProgression class
+ */
+export interface VoicingOptions {
+    /**
+     * Lowest and highest MIDI pitches allowed for a chord's associated bass notes
+     */
+    bassRange: [number, number];
+
+    /**
+     * Lowest and highest MIDI pitches allowed for a chord's harmony notes
+     */
+    harmonyRange: [number, number];
+
+    /**
+     * Max semitones allowed lowest and highest harmony note
+     * Defaults to 16
+     */
+    maxSpan?: number;
+}
